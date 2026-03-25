@@ -11,9 +11,9 @@
  *  5. Replace the 3 constants below.
  */
 
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← remplace
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← remplace
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← remplace
+const EMAILJS_PUBLIC_KEY  = 'Ult9rt0NL2TWEpvOI';  
+const EMAILJS_SERVICE_ID  = 'service_1m7gsrb';
+const EMAILJS_TEMPLATE_ID = 'template_sj3l6a9'; 
 
 // Rate limiting: max 3 submissions per hour
 const RATE_KEY   = 'contact_submits';
