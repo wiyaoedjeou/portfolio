@@ -13,7 +13,7 @@
 
 const EMAILJS_PUBLIC_KEY  = 'Ult9rt0NL2TWEpvOI';  
 const EMAILJS_SERVICE_ID  = 'service_1m7gsrb';
-const EMAILJS_TEMPLATE_ID = 'template_sj3l6a9'; 
+const EMAILJS_TEMPLATE_ID = 'template_vt2jpi5'; 
 
 // Rate limiting: max 3 submissions per hour
 const RATE_KEY   = 'contact_submits';
