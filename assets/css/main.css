@@ -74,8 +74,9 @@ nav {
 .nav-logo span { color: var(--teal); }
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.8rem;
   list-style: none;
+  margin-right: 100px;
 }
 .nav-links a {
   font-family: 'Space Mono', monospace;
