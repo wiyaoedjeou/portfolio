@@ -88,6 +88,24 @@ nav {
 }
 .nav-links a:hover { color: var(--teal); }
 
+/* ─── NAV CTA BUTTON ─── */
+.nav-cta {
+  display: inline-block;
+  padding: 0.42rem 1.05rem;
+  background: var(--teal);
+  color: var(--navy) !important;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  opacity: 0.85 !important;
+  transform: translateY(-2px);
+  color: var(--navy) !important;
+}
+
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
