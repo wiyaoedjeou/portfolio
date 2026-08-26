@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiscale Surface Roughness and Skid Resistance — Wiyao Edjeou</title>
+<meta name="description" content="How multiscale pavement texture analysis connects to real-world skid resistance and tire-road friction prediction.">
+<link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1417; --bg-raised:#151b1f; --line:#232b2f;
+    --text:#e7e5df; --muted:#8a959a; --accent:#16bfa8; --accent2:#b8863a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'IBM Plex Sans', system-ui, sans-serif; line-height:1.65;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    background-position: center top;
+  }
+  .veil{ background: radial-gradient(ellipse at top, rgba(15,20,23,0.2) 0%, var(--bg) 65%); min-height:100vh; }
+  header.top{ max-width:760px; margin:0 auto; padding:32px 24px 0; }
+  a.back{ color:var(--muted); text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.02em; }
+  a.back:hover{ color:var(--accent); }
+  main{ max-width:760px; margin:0 auto; padding:24px 24px 96px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--accent); margin:32px 0 14px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:2.4rem;
+    line-height:1.15; margin:0 0 14px; color:#fff;
+  }
+  .byline{ color:var(--muted); font-size:0.92rem; margin-bottom:40px; }
+  .byline a{ color:var(--accent); text-decoration:none; }
+  h2{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.35rem;
+    color:#fff; margin:44px 0 12px; padding-top:16px; border-top:1px solid var(--line);
+  }
+  h3{
+    font-family:'IBM Plex Mono', monospace; font-weight:500; font-size:1rem;
+    color:var(--accent); margin:26px 0 10px; letter-spacing:0.01em;
+  }
+  p{ color:#d4d2cb; margin:0 0 16px; font-size:1.02rem; }
+  ul{ margin:0 0 20px; padding-left:0; list-style:none; }
+  li{ position:relative; padding-left:22px; margin-bottom:9px; color:#d4d2cb; }
+  li::before{ content:"—"; position:absolute; left:0; color:var(--accent2); }
+  .callout{
+    background:var(--bg-raised); border-left:2px solid var(--accent);
+    padding:16px 20px; margin:24px 0; border-radius:2px;
+  }
+  .callout p{ margin:0; color:var(--muted); font-size:0.94rem; font-style:italic; }
+  footer.article-end{
+    margin-top:56px; padding-top:28px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:0.95rem;
+  }
+  footer.article-end a{ color:var(--accent); text-decoration:none; }
+  footer.article-end a:hover{ text-decoration:underline; }
+  ::selection{ background:var(--accent); color:#0f1417; }
+</style>
+</head>
+<body>
+<div class="veil">
+  <header class="top">
+    <a class="back" href="../index.html#publications">← W. EDJEOU — Portfolio</a>
+  </header>
+  <main>
+    <p class="eyebrow">Pavement Texture · Skid Resistance</p>
+    <h1>Multiscale Surface Roughness and Skid Resistance: Why Scale Matters</h1>
+    <p class="byline">By <strong>Wiyao Edjeou, PhD</strong> — Tribology &amp; Contact Mechanics Engineer &nbsp;·&nbsp; <a href="mailto:wiyaoedjeou@outlook.com">wiyaoedjeou@outlook.com</a></p>
+
+    <p>Ask a road engineer what makes a pavement "grippy" and you'll usually hear about macrotexture — the visible aggregate structure you can feel underfoot. That's only half the picture. Skid resistance, especially in wet conditions, is governed by roughness across several decades of length scale at once, and treating it as a single-scale property is one of the most common mistakes in friction prediction. This is the core idea behind the multiscale texture work I carried out during my PhD and later at EASE.</p>
+
+    <h2>1. Two regimes, two mechanisms</h2>
+    <p>Tire-road friction in wet conditions splits into two largely independent contributions, each dominated by a different texture scale:</p>
+    <ul>
+      <li><strong>Macrotexture (0.5 mm – 50 mm)</strong> — controls water drainage. Coarse aggregate structure gives water somewhere to go, preventing hydroplaning at speed.</li>
+      <li><strong>Microtexture (below ~0.5 mm)</strong> — controls the true adhesion and hysteresis component of friction, generated at the scale where rubber actually makes contact with mineral asperities.</li>
+    </ul>
+    <p>A pavement can have excellent macrotexture and still be dangerously slippery if its microtexture has been polished away by traffic — which is exactly the failure mode that matters for accident risk, and exactly what single-scale texture metrics miss.</p>
+
+    <h2>2. Measuring across scales</h2>
+    <h3>Instrumentation trade-offs</h3>
+    <p>No single instrument captures the full relevant range. Laser profilometry handles macrotexture well but lacks resolution for microtexture; techniques like Alicona focus-variation microscopy resolve microtexture but only over small patches. A multiscale characterization protocol has to combine instruments and stitch the resulting data across scales consistently — an easy step to get wrong if the overlap region between instruments isn't handled carefully.</p>
+    <h3>Spectral decomposition</h3>
+    <p>Rather than picking a single roughness parameter, decomposing the surface spectrum (via wavelet or power spectral density analysis) into scale bands lets you isolate which part of the texture spectrum is actually degrading over time — critical for distinguishing "needs re-texturing" from "needs cleaning" in pavement maintenance decisions.</p>
+
+    <h2>3. From texture to predicted friction</h2>
+    <p>Converting a characterized surface into a predicted friction coefficient requires a contact and viscoelastic dissipation model, not just a texture statistic. In practice this means:</p>
+    <ul>
+      <li>A contact model (often BEM-based — see the companion article on rough contact) to determine real contact area and local pressure at the relevant scales.</li>
+      <li>A viscoelastic rubber model capturing how hysteretic losses depend on sliding speed and temperature, since rubber's dissipative behavior is strongly frequency-dependent.</li>
+      <li>A water film / drainage model at the macrotexture scale, since wet friction collapses if water isn't evacuated fast enough regardless of microtexture quality.</li>
+    </ul>
+
+    <div class="callout">
+      <p>An embedded estimation approach — inferring water film height and skid resistance from in-vehicle sensor data during actual driving, rather than dedicated survey vehicles — was the focus of the ENA project at EASE, validated through instrumented braking tests.</p>
+    </div>
+
+    <h2>4. Practical implications</h2>
+    <p>For infrastructure managers, this multiscale view changes maintenance strategy: macrotexture and microtexture degrade on different timescales and from different mechanisms (rutting and contamination vs. polishing), so a single friction number without scale-resolved diagnosis tells you a road is a problem but not why — or what maintenance action will actually fix it.</p>
+
+    <footer class="article-end">
+      Working on pavement friction, skid resistance prediction, or texture characterization? <a href="mailto:wiyaoedjeou@outlook.com">Get in touch</a>.
+    </footer>
+  </main>
+</div>
+</body>
+</html>
