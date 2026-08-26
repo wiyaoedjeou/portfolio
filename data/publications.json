@@ -2,28 +2,34 @@
   {
     "id": "pub-2025-rail-topography",
     "year": 2025,
-    "tag": "WEAR & FATIGUE",
+    "tag": {
+      "en": "JOURNAL ARTICLE",
+      "fr": "ARTICLE SCIENTIFIQUE"
+    },
     "title": "Effect of the rail surface topography on wear and fatigue",
     "authors": "Edjeou W., Larsson P.-O., Larsson R., Almqvist A.",
-    "journal": "Tribology International · June 2025",
+    "journal": "Wear · Vol. 586, 206218 · 2025",
     "highlight": {
       "en": "🔍 Key finding: Surface topography significantly drives both wear rate and crack initiation in wheel-rail contact.",
       "fr": "🔍 Résultat clé : La topographie de surface influence significativement le taux d'usure et l'initiation des fissures dans le contact roue-rail."
     },
     "abstract": {
-      "en": "This study investigates how rail surface topography — roughness, waviness, and texture — influences the tribological behaviour of the wheel-rail interface. Using a combination of experimental characterisation and numerical modelling, the work establishes quantitative relationships between surface features and fatigue damage indicators, providing a predictive framework for rail maintenance planning.",
-      "fr": "Cette étude examine comment la topographie de surface du rail influence le comportement tribologique de l'interface roue-rail. En combinant caractérisation expérimentale et modélisation numérique, ce travail établit des relations quantitatives entre les caractéristiques de surface et les indicateurs d'endommagement par fatigue."
+      "en": "This study examines how measured rail surface topography influences wheel-rail wear and rolling-contact fatigue. Experimental surface characterization is combined with numerical contact modelling to connect local topographic features with damage indicators.",
+      "fr": "Cette étude examine l'influence de la topographie mesurée du rail sur l'usure et la fatigue de contact roue-rail. La caractérisation expérimentale des surfaces est combinée à la modélisation numérique du contact afin de relier les caractéristiques topographiques locales aux indicateurs d'endommagement."
     },
-    "doi": null,
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "doi": "10.1016/j.wear.2025.206218",
+    "url": null
   },
   {
-    "id": "pub-2024-rail-grinding",
-    "year": 2024,
-    "tag": "RAIL GRINDING",
+    "id": "pub-2025-rail-grinding",
+    "year": 2025,
+    "tag": {
+      "en": "JOURNAL ARTICLE",
+      "fr": "ARTICLE SCIENTIFIQUE"
+    },
     "title": "Evaluating the Impact of Rail Surface Roughness Post-Grinding: An Experimental and Elastoplastic Modelling Approach",
-    "authors": "Edjeou W., Moström O., Asplund M., Almqvist A.",
-    "journal": "Proceedings IMechE Part J: Engineering Tribology · 2024",
+    "authors": "Edjeou W., Moström O., Asplund M., Larsson-Kråik P.-O., Pérez-Ràfols F., Larsson R., Almqvist A.",
+    "journal": "Tribology International · Vol. 201, 110270 · 2025",
     "highlight": {
       "en": "🔍 Key finding: Grinding-induced roughness concentrates stress and strain, significantly increasing crack initiation risk.",
       "fr": "🔍 Résultat clé : La rugosité induite par le meulage concentre les contraintes et déformations, augmentant significativement le risque d'initiation de fissures."
@@ -32,34 +38,40 @@
       "en": "Rail grinding is routinely conducted to prevent crack propagation and surface deterioration. However, grinding introduces surface roughness that can generate stress and strain concentrations. This paper proposes a novel approach integrating replicated rail roughness into an elastoplastic contact model to assess its effects on contact pressure, residual strain and stress distributions.",
       "fr": "Le meulage des rails est régulièrement effectué pour prévenir la propagation des fissures. Cependant, il introduit une rugosité de surface qui peut générer des concentrations de contraintes. Ce travail intègre la rugosité répliquée dans un modèle de contact élastoplastique."
     },
-    "doi": null,
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "doi": "10.1016/j.triboint.2024.110270",
+    "url": null
   },
   {
     "id": "pub-2023-skid-resistance",
-    "year": 2023,
-    "tag": "PAVEMENT TRIBOLOGY",
-    "title": "Multiscale analysis of the relation between skid resistance and pavement surface texture evolution with polishing",
+    "year": 2024,
+    "tag": {
+      "en": "JOURNAL ARTICLE",
+      "fr": "ARTICLE SCIENTIFIQUE"
+    },
+    "title": "Multiscale analyse of the relation between skid resistance and pavements surfaces texture evolution with polishing",
     "authors": "Edjeou W., Cerezo V., Do M.-T., Zahouani H., Ropert C., Augris P.",
-    "journal": "Road Materials and Pavement Design, Vol. 25, No. 1 · 2023",
+    "journal": "Road Materials and Pavement Design · Vol. 25(1), pp. 23–47 · 2024",
     "highlight": {
-      "en": "🔍 Key finding: Texture scales between 0–1000 μm are the most relevant for explaining friction evolution during polishing.",
-      "fr": "🔍 Résultat clé : Les échelles de texture entre 0–1000 μm sont les plus pertinentes pour expliquer l'évolution du frottement lors du polissage."
+      "en": "🔍 Key finding: Different texture scales govern the initial friction gain and the longer-term friction loss during polishing.",
+      "fr": "🔍 Résultat clé : Des échelles de texture différentes gouvernent le gain initial puis la perte de frottement à long terme pendant le polissage."
     },
     "abstract": {
-      "en": "This paper develops a multiscale texture decomposition method based on continuous wavelet analysis to identify the relevant spatial scales that drive pavement skid resistance variation during polishing. Validated against 3D surface measurements and Wehner–Schulze polishing tests on five aggregate types.",
-      "fr": "Ce travail développe une méthode de décomposition multi-échelle de la texture basée sur l'analyse par ondelettes continues pour identifier les échelles spatiales pertinentes qui gouvernent la variation de l'adhérence lors du polissage."
+      "en": "This paper uses continuous wavelet analysis to identify the texture scales that drive skid-resistance evolution during polishing. Across seven pavement surfaces, scales around 300–3000 μm explain the initial friction increase, while scales below 1000 μm dominate the subsequent decrease.",
+      "fr": "Cet article utilise l'analyse par ondelettes continues pour identifier les échelles de texture qui gouvernent l'évolution de l'adhérence pendant le polissage. Sur sept surfaces de chaussée, les échelles d'environ 300 à 3000 μm expliquent le gain initial de frottement, tandis que celles inférieures à 1000 μm dominent ensuite sa diminution."
     },
-    "doi": "10.1080/14680629.2022.2066477",
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "doi": "10.1080/14680629.2023.2191723",
+    "url": null
   },
   {
-    "id": "pub-2021-aggregate-texture",
-    "year": 2021,
-    "tag": "AGGREGATE TEXTURE",
-    "title": "A contribution to texture analysis of pavements under simulated polishing: some new findings",
+    "id": "pub-2023-aggregate-texture",
+    "year": 2023,
+    "tag": {
+      "en": "JOURNAL ARTICLE",
+      "fr": "ARTICLE SCIENTIFIQUE"
+    },
+    "title": "Contribution of multiscale analysis to the understanding of friction evolution of aggregates surfaces",
     "authors": "Edjeou W., Cerezo V., Zahouani H., Do M.-T.",
-    "journal": "Proceedings of ICR Congress · 2021",
+    "journal": "Surface Topography: Metrology and Properties · Vol. 11, 014006 · 2023",
     "highlight": {
       "en": "🔍 Key finding: Continuous wavelet decomposition reveals aggregate-scale texture features controlling long-term skid resistance.",
       "fr": "🔍 Résultat clé : La décomposition par ondelettes révèle les caractéristiques de texture à l'échelle des granulats qui contrôlent l'adhérence à long terme."
@@ -68,13 +80,16 @@
       "en": "A multiscale texture analysis method is developed and applied to aggregate surfaces to explain the variation of road friction during polishing. Combines polishing tests, friction measurements, and 3D surface mapping using Alicona Infinite Focus.",
       "fr": "Une méthode d'analyse multi-échelle de la texture est développée et appliquée aux surfaces de granulats pour expliquer la variation du frottement routier lors du polissage."
     },
-    "doi": null,
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "doi": "10.1088/2051-672X/acb95d",
+    "url": null
   },
   {
     "id": "pub-2021-skid-autonomous",
     "year": 2021,
-    "tag": "SKID RESISTANCE",
+    "tag": {
+      "en": "R&D CASE STUDY",
+      "fr": "PROJET R&D"
+    },
     "title": "Embedded estimation of tire/road skid resistance for autonomous vehicle safety",
     "authors": "Edjeou W., Cerezo V., Do M.-T.",
     "journal": "University Gustave Eiffel / EASE · 2021–2022",
@@ -87,12 +102,15 @@
       "fr": "Système embarqué pour l'estimation de la hauteur du film d'eau et de l'adhérence pneu/chaussée en conditions mouillées, développé dans le cadre de l'expérimentation de navettes autonomes (Projet ENA)."
     },
     "doi": null,
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "url": null
   },
   {
     "id": "pub-2021-phd-thesis",
     "year": 2021,
-    "tag": "PhD THESIS",
+    "tag": {
+      "en": "PHD THESIS",
+      "fr": "THÈSE DE DOCTORAT"
+    },
     "title": "Analyse multiéchelle de la texture des chaussées — effet sur l'adhérence des revêtements routiers",
     "authors": "Edjeou W. — IFSTTAR / Centrale Nantes",
     "journal": "IFSTTAR / Centrale Nantes · 2021",
@@ -105,6 +123,10 @@
       "fr": "Thèse de doctorat développant une méthode complète de décomposition multi-échelle pour expliquer l'effet des différentes échelles de texture sur l'évolution de l'adhérence avec le polissage."
     },
     "doi": null,
-    "url": "https://www.researchgate.net/profile/Wiyao-Edjeou/publications"
+    "url": "https://www.ec-nantes.fr/centrale-nantes/news/avis-de-soutenance-de-these-de-wiyao-edjeou-ed-spi",
+    "linkLabel": {
+      "en": "Thesis record ↗",
+      "fr": "Notice de thèse ↗"
+    }
   }
 ]

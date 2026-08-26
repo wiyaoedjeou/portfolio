@@ -1,68 +1,71 @@
 # Wiyao EDJEOU — Portfolio
 
-Portfolio website for Wiyao EDJEOU, Tribology & Contact Mechanics Engineer.
+Static bilingual portfolio for Wiyao EDJEOU, PhD engineer in tribology and contact mechanics.
 
-**Live:** https://wiyaoedjeou.github.io/portfolio/
+**Live site:** <https://wiyaoedjeou.github.io/portfolio/>
 
-## Structure
+## What is included
 
-```
+- English/French landing page with experience, expertise, services, and contact sections.
+- Six hand-curated research works in `data/publications.json`.
+- A link to ResearchGate for the complete publication record.
+- Two long-form technical articles in `blog/`.
+- Progressive enhancement: the selected research remains readable and indexable if JavaScript or the JSON request fails.
+- Responsive navigation, reduced-motion support, visible keyboard focus, and native form validation.
+
+## Project structure
+
+```text
 portfolio/
-├── index.html                          # Main HTML (semantic, accessible)
+├── index.html
 ├── assets/
 │   ├── css/
-│   │   └── main.css                    # All styles
+│   │   ├── main.css
+│   │   └── article.css
+│   ├── images/
+│   │   └── og-tribology-contact.jpg
 │   └── js/
-│       ├── main.js                     # Entry point
-│       ├── lang.js                     # EN/FR language toggle
-│       ├── animations.js               # Scroll-triggered fade-in (fixed)
-│       ├── publications.js             # Dynamic publications renderer
-│       └── contact.js                  # EmailJS contact form
-├── data/
-│   └── publications.json               # Publication data (auto-updated weekly)
-└── .github/
-    ├── workflows/
-    │   └── update-publications.yml     # Weekly GitHub Action
-    └── scripts/
-        └── fetch_publications.py       # Semantic Scholar fetcher
+│       ├── main.js
+│       ├── lang.js
+│       ├── animations.js
+│       ├── publications.js
+│       └── contact.js
+├── blog/
+│   ├── bem-rough-contact.html
+│   └── multiscale-roughness-skid-resistance.html
+├── data/publications.json
+├── scripts/validate.mjs
+├── robots.txt
+└── sitemap.xml
 ```
 
-## Setup: Contact Form (EmailJS)
+## Local development
 
-The contact form sends emails directly to `wiyaoedjeou@outlook.com` via [EmailJS](https://www.emailjs.com) (free, 200 emails/month, no backend needed).
-
-1. Create a free account at https://www.emailjs.com
-2. Add **Email Service** → connect your Outlook account → copy `SERVICE_ID`
-3. Create **Email Template** with these variables:
-   ```
-   From: {{from_name}} ({{from_company}}) <{{from_email}}>
-   Subject: [Portfolio] New message — {{mission_type}}
-   Body: {{message}}
-   ```
-   Copy `TEMPLATE_ID`
-4. Go to **Account → API Keys** → copy your `PUBLIC_KEY`
-5. Edit `assets/js/contact.js` and replace the 3 constants at the top:
-   ```js
-   const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-   const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-   const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-   ```
-6. Commit and push — the form is now live.
-
-## Setup: Auto-update Publications
-
-Publications are automatically fetched from [Semantic Scholar](https://www.semanticscholar.org) every Monday via GitHub Actions.
-
-- **Manual trigger:** Go to Actions → "Update Publications" → Run workflow
-- **Customize:** Edit `.github/scripts/fetch_publications.py`
-- **Hand-curated data** (highlights, FR abstracts) in `data/publications.json` is preserved during updates
-
-## Local Development
+ES modules and the JSON request require an HTTP server rather than a direct `file://` opening:
 
 ```bash
-# Simple static server (Python)
 python3 -m http.server 8080
-# Then open: http://localhost:8080
 ```
 
-> Note: ES modules require a server (not `file://`). Use the command above for local testing.
+Then open <http://localhost:8080>.
+
+## Validation
+
+Run the repository checks before publishing:
+
+```bash
+node scripts/validate.mjs
+node --check assets/js/*.js
+```
+
+The validator checks the six selected research entries, duplicate HTML IDs, structured data, and local file references.
+
+## Updating the selected research
+
+Edit `data/publications.json` manually. Keep exactly six representative works on the portfolio; the ResearchGate call to action is the path to the full list. Each public record should retain its verified citation, DOI or source URL, and both English and French editorial summaries.
+
+## Contact form
+
+The form uses the EmailJS browser SDK and is configured in `assets/js/contact.js`. It includes native required-field validation, a honeypot, and a lightweight per-session rate limit. If the EmailJS runtime is unavailable, the interface directs visitors to the public email address instead of failing silently.
+
+EmailJS public keys are designed for client-side use, but sending restrictions should still be configured in the EmailJS dashboard for the production domain.

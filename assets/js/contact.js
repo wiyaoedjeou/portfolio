@@ -34,13 +34,15 @@ function isRateLimited() {
 }
 
 function recordSubmission() {
-  const data = getRateLimitData();
-  const now = Date.now();
-  if (now - data.since > RATE_WINDOW) {
-    sessionStorage.setItem(RATE_KEY, JSON.stringify({ count: 1, since: now }));
-  } else {
-    sessionStorage.setItem(RATE_KEY, JSON.stringify({ count: data.count + 1, since: data.since }));
-  }
+  try {
+    const data = getRateLimitData();
+    const now = Date.now();
+    if (now - data.since > RATE_WINDOW) {
+      sessionStorage.setItem(RATE_KEY, JSON.stringify({ count: 1, since: now }));
+    } else {
+      sessionStorage.setItem(RATE_KEY, JSON.stringify({ count: data.count + 1, since: data.since }));
+    }
+  } catch { /* Storage failure must not block a legitimate message. */ }
 }
 
 function setStatus(form, type, msgEn, msgFr) {
@@ -57,19 +59,19 @@ function setStatus(form, type, msgEn, msgFr) {
 }
 
 function setLoading(btn, loading) {
+  if (!btn) return;
+  const lang = document.documentElement.getAttribute('lang') || 'en';
   btn.disabled = loading;
   btn.textContent = loading
-    ? (document.documentElement.getAttribute('lang') === 'fr' ? 'Envoi en cours…' : 'Sending…')
-    : btn.getAttribute('data-original-text');
+    ? (lang === 'fr' ? 'Envoi en cours…' : 'Sending…')
+    : (btn.getAttribute(`data-${lang}`) || btn.textContent);
 }
 
 export function initContact() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  // Store original button text
   const btn = form.querySelector('[type="submit"]');
-  if (btn) btn.setAttribute('data-original-text', btn.textContent);
 
   // EmailJS SDK is loaded via <script> in index.html
   if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
@@ -78,6 +80,11 @@ export function initContact() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     // Honeypot check (bots fill hidden field)
     if (form.querySelector('[name="_honey"]')?.value) return;
@@ -98,7 +105,7 @@ export function initContact() {
       return;
     }
 
-    if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY' || typeof emailjs === 'undefined') {
       setStatus(form, 'error',
         'Contact form not configured yet. Please email wiyaoedjeou@outlook.com directly.',
         'Formulaire non configuré. Envoyez un email à wiyaoedjeou@outlook.com.'

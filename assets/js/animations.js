@@ -20,6 +20,8 @@
 
 const VISIBLE_CLASS = 'visible';
 const FADE_SELECTOR = '.fade-in';
+let observer = null;
+let initialized = false;
 
 function revealElement(el) {
   el.classList.add(VISIBLE_CLASS);
@@ -30,14 +32,45 @@ function isInViewport(el) {
   return rect.top < window.innerHeight - 30 && rect.bottom > 0;
 }
 
-function revealAllVisible() {
-  document.querySelectorAll(`${FADE_SELECTOR}:not(.${VISIBLE_CLASS})`).forEach(el => {
+function revealAllVisible(root = document) {
+  root.querySelectorAll(`${FADE_SELECTOR}:not(.${VISIBLE_CLASS})`).forEach(el => {
     if (isInViewport(el)) revealElement(el);
   });
 }
 
+export function observeFadeIns(root = document) {
+  const elements = root.querySelectorAll(`${FADE_SELECTOR}:not(.${VISIBLE_CLASS})`);
+  if (!elements.length) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    elements.forEach(revealElement);
+    return;
+  }
+
+  if (!observer) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            revealElement(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -10px 0px' }
+    );
+  }
+
+  elements.forEach(el => {
+    if (isInViewport(el)) revealElement(el);
+    else observer.observe(el);
+  });
+}
+
 export function initAnimations() {
-  if (!document.querySelectorAll(FADE_SELECTOR).length) return;
+  observeFadeIns();
+  if (initialized) return;
+  initialized = true;
 
   // 1. Immediate check
   revealAllVisible();
@@ -45,7 +78,7 @@ export function initAnimations() {
   // 2. Double rAF: browser applies hash-scroll between these two frames
   requestAnimationFrame(() => {
     revealAllVisible();
-    requestAnimationFrame(revealAllVisible);
+    requestAnimationFrame(() => revealAllVisible());
   });
 
   // 3. After full page load (fonts, images → layout is stable)
@@ -57,30 +90,7 @@ export function initAnimations() {
     setTimeout(revealAllVisible, 100);
   });
 
-  if (!('IntersectionObserver' in window)) {
-    // Fallback for very old browsers: reveal everything
-    document.querySelectorAll(FADE_SELECTOR).forEach(revealElement);
-    return;
-  }
-
-  // 5. IntersectionObserver for elements scrolled into view normally
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          revealElement(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.05, rootMargin: '0px 0px -10px 0px' }
-  );
-
-  document.querySelectorAll(FADE_SELECTOR).forEach(el => {
-    if (!el.classList.contains(VISIBLE_CLASS)) observer.observe(el);
-  });
-
-  // 6. Scroll debounce — belt-and-suspenders fallback
+  // 5. Scroll debounce — belt-and-suspenders fallback
   let scrollTimer;
   window.addEventListener('scroll', () => {
     clearTimeout(scrollTimer);

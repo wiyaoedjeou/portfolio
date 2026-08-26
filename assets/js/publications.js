@@ -1,35 +1,70 @@
 /**
  * publications.js
- * Fetches publications from /data/publications.json and renders them.
- * JSON is auto-updated weekly via GitHub Actions (see .github/workflows/update-publications.yml).
+ * Fetches the curated selection from /data/publications.json and renders it.
+ * The six entries are maintained manually so their citations and translations stay accurate.
  */
 
 import { getCurrentLang } from './lang.js';
+import { observeFadeIns } from './animations.js';
 
 const PUB_DATA_URL = 'data/publications.json';
+let publications = [];
+
+function localized(value, lang) {
+  if (value && typeof value === 'object') return value[lang] || value.en || '';
+  return value || '';
+}
+
+function appendTextElement(parent, tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  element.textContent = text;
+  parent.appendChild(element);
+  return element;
+}
 
 function createPubCard(pub, lang) {
-  const highlight = typeof pub.highlight === 'object' ? pub.highlight[lang] : pub.highlight;
-  const abstract = typeof pub.abstract === 'object' ? pub.abstract[lang] : pub.abstract;
+  const highlight = localized(pub.highlight, lang);
+  const abstract = localized(pub.abstract, lang);
 
   const card = document.createElement('div');
   card.className = 'pub-card fade-in';
-  card.innerHTML = `
-    <div class="pub-year">
-      ${pub.year}
-      <span class="pub-tag">${pub.tag}</span>
-    </div>
-    <h3>${pub.title}</h3>
-    <p class="pub-authors">${pub.authors}</p>
-    ${highlight ? `<div class="pub-highlight">${highlight}</div>` : ''}
-    <p class="pub-abstract">${abstract}</p>
-    <div class="pub-footer">
-      <span class="pub-journal">${pub.journal}</span>
-      ${pub.doi ? `<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener" class="pub-doi">DOI ↗</a>` : ''}
-      ${pub.url && !pub.doi ? `<a href="${pub.url}" target="_blank" rel="noopener" class="pub-doi">ResearchGate ↗</a>` : ''}
-    </div>
-  `;
+
+  const heading = document.createElement('div');
+  heading.className = 'pub-year';
+  heading.append(document.createTextNode(String(pub.year)));
+  appendTextElement(heading, 'span', 'pub-tag', localized(pub.tag, lang));
+  card.appendChild(heading);
+
+  appendTextElement(card, 'h3', '', pub.title);
+  appendTextElement(card, 'p', 'pub-authors', pub.authors);
+  if (highlight) appendTextElement(card, 'div', 'pub-highlight', highlight);
+  appendTextElement(card, 'p', 'pub-abstract', abstract);
+
+  const footer = document.createElement('div');
+  footer.className = 'pub-footer';
+  appendTextElement(footer, 'span', 'pub-journal', pub.journal);
+
+  if (pub.doi || pub.url) {
+    const link = document.createElement('a');
+    link.className = 'pub-doi';
+    link.href = pub.doi ? `https://doi.org/${pub.doi}` : pub.url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = pub.doi ? 'DOI ↗' : localized(pub.linkLabel, lang) || (lang === 'fr' ? 'Voir la source ↗' : 'View source ↗');
+    footer.appendChild(link);
+  }
+
+  card.appendChild(footer);
   return card;
+}
+
+function renderPublications(lang = getCurrentLang()) {
+  const grid = document.getElementById('pub-grid');
+  if (!grid || !publications.length) return;
+
+  grid.replaceChildren(...publications.map(pub => createPubCard(pub, lang)));
+  requestAnimationFrame(() => observeFadeIns(grid));
 }
 
 export async function initPublications() {
@@ -39,22 +74,14 @@ export async function initPublications() {
   try {
     const res = await fetch(PUB_DATA_URL);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const pubs = await res.json();
+    publications = await res.json();
 
     // Sort by year descending
-    pubs.sort((a, b) => b.year - a.year);
-
-    const lang = getCurrentLang();
-    grid.innerHTML = '';
-    pubs.forEach(pub => grid.appendChild(createPubCard(pub, lang)));
-
-    // Trigger animations for newly inserted cards
-    requestAnimationFrame(() => {
-      import('./animations.js').then(({ initAnimations }) => initAnimations());
-    });
+    publications.sort((a, b) => b.year - a.year);
+    renderPublications();
+    window.addEventListener('languagechange', event => renderPublications(event.detail.lang));
 
   } catch (err) {
-    console.warn('Publications data unavailable, using static content.', err);
-    // Static content already in HTML as fallback (see index.html noscript section)
+    console.warn('Publications data unavailable; keeping the static fallback.', err);
   }
 }
