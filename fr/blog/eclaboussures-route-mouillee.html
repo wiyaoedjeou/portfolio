@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ce que les éclaboussures peuvent nous apprendre sur une route mouillée — Wiyao EDJEOU</title>
+  <meta name="description" content="Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.">
+  <meta name="author" content="Wiyao EDJEOU">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0f1417">
+  <link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html">
+  <link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html">
+  <link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html">
+  <link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wiyao EDJEOU — Portfolio">
+  <meta property="og:url" content="https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html">
+  <meta property="og:title" content="Ce que les éclaboussures peuvent nous apprendre sur une route mouillée">
+  <meta property="og:description" content="Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+
+
+  <meta property="article:modified_time" content="2026-08-27">
+  <meta property="article:author" content="Wiyao EDJEOU">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ce que les éclaboussures peuvent nous apprendre sur une route mouillée">
+  <meta name="twitter:description" content="Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html#article",
+  "headline": "Ce que les éclaboussures peuvent nous apprendre sur une route mouillée",
+  "description": "Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.",
+  "inLanguage": "fr",
+  "dateModified": "2026-08-27",
+  "author": {
+    "@type": "Person",
+    "name": "Wiyao EDJEOU",
+    "url": "https://wiyaoedjeou.github.io/portfolio/"
+  },
+  "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html"
+}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#article-content">Aller à l’article</a>
+  <div class="veil">
+    <header class="top">
+      <a class="back" href="../../index.html?lang=fr#blog">← W. EDJEOU — Portfolio et articles</a>
+      <nav class="article-languages" aria-label="Langue de l’article"><a href="../../blog/road-wetness-water-spray.html" lang="en" hreflang="en">English</a>
+<a href="eclaboussures-route-mouillee.html" lang="fr" hreflang="fr" aria-current="page">Français</a></nav>
+    </header>
+    <main id="article-content">
+      <article>
+        <p class="eyebrow">Mesure embarquée · Chaussée mouillée</p>
+        <h1>Ce que les éclaboussures peuvent nous apprendre sur une route mouillée</h1>
+        <p class="byline">Par <strong>Wiyao EDJEOU, PhD</strong></p>
+        <p class="article-meta">Mis à jour le <time datetime="2026-08-27">27 août 2026</time> · 9 min de lecture</p>
+        <details class="article-toc"><summary>Sommaire</summary><ol><li><a href="#un-phenomene-ordinaire-une-question-de-mesure">Un phénomène ordinaire, une question de mesure</a></li><li><a href="#que-veut-dire-epaisseur-d-eau-sur-une-surface-rugueuse">Que veut dire « épaisseur d’eau » sur une surface rugueuse ?</a></li><li><a href="#le-passage-de-roue-devient-une-surface-sensible">Le passage de roue devient une surface sensible</a></li><li><a href="#separer-les-gouttes-du-reste-des-vibrations">Séparer les gouttes du reste des vibrations</a></li><li><a href="#de-la-remorque-a-la-voiture">De la remorque à la voiture</a></li><li><a href="#une-reponse-avec-un-seuil-et-une-saturation">Une réponse avec un seuil et une saturation</a></li><li><a href="#la-texture-ne-se-resume-pas-a-une-profondeur-moyenne">La texture ne se résume pas à une profondeur moyenne</a></li><li><a href="#estimer-l-eau-n-est-pas-encore-mesurer-l-adherence">Estimer l’eau n’est pas encore mesurer l’adhérence</a></li><li><a href="#ce-que-cette-recherche-apporte">Ce que cette recherche apporte</a></li><li><a href="#pour-approfondir">Pour approfondir</a></li><li><a href="#references">Références</a></li></ol></details>
+        <div class="article-body">
+<p>Les projections d’eau derrière un pneu sont généralement considérées comme une nuisance. Elles peuvent aussi devenir une source d’information : en mesurant les vibrations qu’elles produisent sur le passage de roue, il est possible d’étudier la quantité d’eau présente sur la chaussée. Mais transformer des éclaboussures en mesure demande bien davantage que de poser un capteur.</p>
+<h2 id="un-phenomene-ordinaire-une-question-de-mesure">Un phénomène ordinaire, une question de mesure</h2>
+<p>Après une pluie, une chaussée peut conserver de l’eau sans présenter de grandes flaques. Pour comprendre le contact entre le pneu et cette surface, savoir qu’il a plu ne suffit donc pas. Il faut aussi s’intéresser à l’eau qui subsiste localement, à la texture du revêtement et aux conditions de passage du véhicule.</p>
+<p>L’une des questions étudiées dans les travaux présentés ici est la suivante : peut-on utiliser les effets du roulement sur l’eau pour estimer cette dernière, plutôt que de la mesurer uniquement à l’aide d’un instrument optique dédié ?</p>
+<p>La démarche repose sur une chaîne physique simple à décrire. Le pneu rencontre une surface mouillée, déplace l’eau et projette des gouttes. Une partie de ces gouttes atteint le passage de roue et le fait vibrer. Un accéléromètre enregistre alors une réponse mécanique susceptible de contenir une information sur l’état de la chaussée. Le travail scientifique consiste à identifier cette information et à déterminer dans quelles conditions elle reste exploitable. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<h2 id="que-veut-dire-epaisseur-d-eau-sur-une-surface-rugueuse">Que veut dire « épaisseur d’eau » sur une surface rugueuse ?</h2>
+<p>Sur une plaque parfaitement plane, la notion paraît évidente. Sur une chaussée, l’eau occupe des creux de tailles différentes et peut laisser émerger certains sommets. Deux surfaces portant le même volume d’eau par unité de surface ne présentent donc pas nécessairement le même film au-dessus de leurs aspérités.</p>
+<p>Il faut distinguer une épaisseur mesurée au-dessus des sommets et une épaisseur moyenne, définie comme le volume d’eau rapporté à la surface mouillée. L’étude réalisée sur voiture retient cette seconde notion. Cette précision est importante : une valeur moyenne ne décrit pas, à elle seule, la distribution locale de l’eau entre les sommets et les vallées. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Le capteur embarqué n’observe d’ailleurs pas directement cette géométrie. Il mesure les conséquences de l’interaction pneu-eau-chaussée. Son étalonnage doit donc associer le signal vibratoire à une mesure de référence, avec une définition cohérente de la grandeur recherchée.</p>
+<h2 id="le-passage-de-roue-devient-une-surface-sensible">Le passage de roue devient une surface sensible</h2>
+<p>Toutes les projections ne suivent pas le même trajet. Certaines sont chassées vers l’avant ou sur les côtés ; d’autres sont emportées par le pneu puis éjectées derrière lui. L’emplacement du capteur détermine ainsi quelles projections contribuent le plus au signal.</p>
+<p>Dans une première étude, une remorque équipée d’une roue a permis d’examiner ce phénomène avec davantage d’accès visuel qu’une voiture complète. Quatre positions d’accéléromètres ont été comparées. Les observations des écoulements et l’analyse des signaux ont montré l’intérêt d’un emplacement dans la partie basse du passage de roue, proche de la chaussée. Dans cette configuration, les impacts produisaient une réponse plus marquée. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>]</span></p>
+<p>Ce choix ne signifie pas qu’il existe une position idéale valable pour tous les véhicules. La forme du passage de roue, ses propriétés mécaniques et les trajectoires des gouttes participent à la mesure. Le capteur et son support constituent ensemble le système sensible.</p>
+<p>Cette distinction est fondamentale pour envisager une application embarquée. Installer le même accéléromètre ailleurs ne garantit pas que l’on retrouve la même relation entre vibration et épaisseur d’eau.</p>
+<h2 id="separer-les-gouttes-du-reste-des-vibrations">Séparer les gouttes du reste des vibrations</h2>
+<p>Une voiture vibre aussi sur une route sèche. La dynamique du véhicule et les irrégularités de la chaussée contribuent au signal brut. Une forte accélération enregistrée ne peut donc pas être attribuée automatiquement à la présence d’eau.</p>
+<p>La comparaison entre essais secs et mouillés permet de rechercher les fréquences où les deux situations se distinguent. Les études utilisent ensuite un filtre de Chebyshev conservant la bande comprise entre 2 et 7 kHz. Dans les configurations testées, ce traitement réduit les contributions parasites et fait ressortir la réponse associée aux projections. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Il ne s’agit pas d’une bande de fréquences universelle caractérisant l’eau. C’est un choix établi à partir du dispositif et des essais. Pour un autre véhicule, la pertinence du même filtrage devrait être vérifiée.</p>
+<p>Une fois le signal filtré, il faut le résumer. L’étude sur voiture utilise notamment sa valeur efficace, ou RMS. Cet indicateur combine les amplitudes sur une fenêtre de mesure sans annuler les oscillations positives et négatives, comme le ferait une simple moyenne signée. Il fournit une grandeur comparable entre différents passages. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>On obtient ainsi une information plus robuste qu’un pic isolé. Mais cette information décrit toujours une vibration : l’étape suivante consiste à la relier à l’eau réellement présente sur la route.</p>
+<h2 id="de-la-remorque-a-la-voiture">De la remorque à la voiture</h2>
+<p>L’étude sur remorque examine trois surfaces et deux vitesses. Elle met en évidence une relation entre l’amplitude du signal filtré et l’épaisseur d’eau, avec une dépendance à la vitesse. Dans ce programme limité, les mesures permettent d’ajuster, pour chaque vitesse, une courbe commune aux surfaces étudiées. C’est une démonstration de faisabilité, pas encore une validation sur l’ensemble du réseau routier. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>]</span></p>
+<p>Le passage à une voiture constitue une étape supplémentaire. Des accéléromètres sont installés sur le passage de roue avant d’une Clio 3, puis les essais sont réalisés sur trois revêtements de piste. Le domaine étudié couvre des vitesses de 25 à 70 km/h et des épaisseurs d’eau d’environ 0,1 à 0,8 mm. Ces intervalles décrivent les conditions d’essai ; ils ne doivent pas être présentés comme les limites certifiées d’un produit. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Deux tendances se dégagent : l’amplitude augmente généralement avec l’épaisseur d’eau et avec la vitesse. Une même amplitude n’a donc pas une signification unique. Sans connaissance des conditions de roulement, on ne peut pas simplement lire une hauteur d’eau sur une courbe indépendante du véhicule et de sa vitesse.</p>
+<p>Ce résultat illustre une difficulté classique des mesures indirectes : plusieurs causes peuvent produire des réponses proches. La qualité de l’estimation dépend de notre capacité à les distinguer.</p>
+<h2 id="une-reponse-avec-un-seuil-et-une-saturation">Une réponse avec un seuil et une saturation</h2>
+<p>La relation observée n’est pas simplement proportionnelle. Dans l’étude sur voiture, un modèle exponentiel décrit l’augmentation de l’amplitude puis sa tendance à se stabiliser. Une version du modèle introduit également un décalage de l’origine, dépendant de la surface et de la vitesse. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Ce décalage représente un seuil de réponse : sur certaines surfaces, une faible quantité d’eau n’engendre pas encore suffisamment de projections détectables. L’absence de réponse nette ne prouve donc pas que la chaussée est sèche. Elle peut aussi correspondre à de l’eau située sous le seuil de détection de la configuration considérée.</p>
+<p>À l’autre extrémité, la saturation a une conséquence différente. Lorsque la courbe devient presque horizontale, une variation de l’épaisseur d’eau ne modifie que peu l’amplitude mesurée. On peut en déduire qu’une estimation obtenue en inversant cette relation devient plus sensible aux incertitudes du signal. Cette conséquence découle de la forme du modèle ; elle ne constitue pas un résultat supplémentaire d’essai.</p>
+<p>Le seuil et la saturation rappellent qu’un capteur ne possède pas la même sensibilité dans toutes les situations. Une relation bien ajustée sur des données ne dispense pas d’étudier la confiance que l’on peut accorder à chaque estimation.</p>
+<h2 id="la-texture-ne-se-resume-pas-a-une-profondeur-moyenne">La texture ne se résume pas à une profondeur moyenne</h2>
+<p>La chaussée influence la façon dont l’eau est stockée, évacuée et projetée. On pourrait donc penser qu’un indicateur moyen de macrotexture suffirait à expliquer les différences entre revêtements.</p>
+<p>Les résultats montrent une situation plus nuancée. Dans l’étude sur voiture, la profondeur moyenne de texture et la profondeur moyenne du profil ne permettent pas de retrouver entièrement le classement des réponses observées entre les trois surfaces. Les auteurs proposent d’approfondir l’analyse des mécanismes de projection et d’utiliser des cartes topographiques tridimensionnelles. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Le lien avec mes travaux sur la texture des chaussées est direct : une moyenne peut masquer les organisations géométriques qui influencent une fonction. Dans la thèse, la décomposition multiéchelle aide à interpréter l’évolution du frottement. Ici, la question devient celle de la répartition de l’eau et de sa projection. <span class="citation">[<a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<p>Cela ne signifie pas que les résultats d’adhérence peuvent être transposés tels quels au capteur. Les deux problèmes partagent un besoin de description géométrique, mais ne mettent pas en jeu exactement les mêmes mécanismes. Leur rapprochement constitue une piste de recherche, pas une équivalence déjà démontrée.</p>
+<h2 id="estimer-l-eau-n-est-pas-encore-mesurer-l-adherence">Estimer l’eau n’est pas encore mesurer l’adhérence</h2>
+<p>La distinction est essentielle. Le système présenté cherche à estimer une épaisseur d’eau à partir de vibrations. Il ne mesure pas directement le coefficient de frottement pneu-chaussée et ne fournit pas, à lui seul, une distance de freinage.</p>
+<p>Pour passer de l’eau à l’adhérence, il faut aussi considérer la vitesse, la texture, le pneumatique et les conditions du contact. Deux situations présentant une même épaisseur moyenne d’eau peuvent donc conduire à des comportements différents. L’étude sur voiture présente le développement d’un estimateur de frottement comme une étape ultérieure. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Une autre limite concerne les essais eux-mêmes. Une piste permet de comparer des surfaces et de contrôler une partie des conditions. Une chaussée circulée peut comporter des déformations, des irrégularités et une distribution d’eau plus hétérogène. La transposition doit être évaluée, et non supposée.</p>
+<p>Les mêmes pneumatiques étant utilisés dans la campagne sur voiture, l’étude ne permet pas non plus d’isoler leur influence. La géométrie du pneu, celle du passage de roue et l’évolution du support de capteur font partie des paramètres qu’il serait pertinent d’examiner pour aller vers un dispositif plus général. Il s’agit ici de besoins de validation, et non de performances déjà établies.</p>
+<h2 id="ce-que-cette-recherche-apporte">Ce que cette recherche apporte</h2>
+<p>L’apport principal est de transformer un phénomène habituellement subi en information mesurable, puis de montrer comment cette information dépend de conditions physiques identifiables. Le travail ne consiste pas seulement à détecter une différence entre sec et mouillé : il cherche une relation quantitative avec l’eau présente sur la chaussée.</p>
+<p>La méthode avance par étapes : observer les projections, choisir l’emplacement des capteurs, filtrer les signaux, comparer à une référence et examiner les limites de l’estimation. C’est cette chaîne qui donne sa valeur au résultat.</p>
+<p>Les applications possibles à l’assistance à la conduite restent une motivation importante. Leur développement demandera toutefois de caractériser les incertitudes, les situations de non-détection et la robustesse sur d’autres configurations. La promesse scientifique est précise : les éclaboussures peuvent nous renseigner sur la route. Pour savoir jusqu’où, il faut continuer à relier le signal à la physique qui le produit.</p>
+<h2 id="pour-approfondir">Pour approfondir</h2>
+<ul><li><a href="texture-multiechelle-adherence.html">Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence</a></li><li><a href="adherence-chaussee-neuve.html">Pourquoi une chaussée neuve peut-elle gagner en adhérence avant d’en perdre ?</a></li></ul>
+<h2 id="references">Références</h2>
+<ol class="reference-list"><li id="ref-1">Riahi, E., Edjeou, W., Buisson, S., Gennesseaux, M. et Do, M.-T. (2022). <em>Estimation of Water Depth on Road Surfaces Using Accelerometric Signals</em>. Sensors, 22, 8940. <a href="https://doi.org/10.3390/s22228940">Article et DOI</a>.</li><li id="ref-2">Edjeou, W., Riahi, E., Gennesseaux, M., Cerezo, V. et Do, M.-T. (2024 ; mise en ligne en décembre 2023). <em>Estimation of Road Wetness from a Passenger Car</em>. Lubricants, 12, 2. <a href="https://doi.org/10.3390/lubricants12010002">Article et DOI</a>.</li><li id="ref-3">Edjeou, W. (2021). <em>Analyse multiéchelle de la texture des chaussées - effet sur l’adhérence des revêtements routiers</em>. Thèse, École centrale de Nantes. <a href="https://theses.hal.science/tel-03651239v1">Manuscrit sur HAL</a>.</li></ol>
+<p><em>Cet article de vulgarisation s’appuie sur des recherches collectives. Il ne constitue pas une validation d’un système commercial ni une recommandation de conduite.</em></p>
+        </div>
+        <footer class="article-end">
+          <a href="../../index.html?lang=fr#blog">← Tous les articles</a>
+          <a href="../../blog/road-wetness-water-spray.html" lang="en" hreflang="en">Read this article in English →</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

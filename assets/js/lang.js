@@ -16,6 +16,13 @@ try {
   // Storage can be unavailable in privacy-restricted browsing contexts.
 }
 
+try {
+  const requestedLang = new URLSearchParams(window.location.search).get('lang');
+  if (SUPPORTED_LANGS.includes(requestedLang)) currentLang = requestedLang;
+} catch {
+  // An unavailable URL must not block the default language.
+}
+
 function applyLang(lang) {
   if (!SUPPORTED_LANGS.includes(lang)) lang = DEFAULT_LANG;
   currentLang = lang;
@@ -36,9 +43,16 @@ function applyLang(lang) {
     if (!text) return;
     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
       el.placeholder = text;
+    } else if (el.hasAttribute('data-i18n-text')) {
+      el.textContent = text;
     } else {
       el.innerHTML = text;
     }
+  });
+
+  document.querySelectorAll('[data-href-en]').forEach(el => {
+    const href = el.getAttribute(`data-href-${lang}`);
+    if (href) el.setAttribute('href', href);
   });
 
   const pageTitle = document.querySelector(`meta[name="title-${lang}"]`)?.content;

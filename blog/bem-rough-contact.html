@@ -3,48 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boundary Element Method for Rough Contact Problems — Wiyao Edjeou</title>
-  <meta name="description" content="A practical introduction to the Boundary Element Method for rough elastic contact, applied to wheel-rail and tire-road tribology.">
+  <title>From Surface Topography to Pressure: Understanding Rough-Contact BEM — Wiyao EDJEOU</title>
+  <meta name="description" content="An introduction to rough-contact BEM: pressure, separation, FFT acceleration and the limits of elastic and elastoplastic formulations.">
   <meta name="author" content="Wiyao EDJEOU">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="theme-color" content="#0f1417">
   <link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html">
-
+  <link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html">
+  <link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/calcul-contact-rugueux-bem.html">
+  <link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html">
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wiyao EDJEOU — Portfolio">
   <meta property="og:url" content="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html">
-  <meta property="og:title" content="Boundary Element Method for Rough Contact Problems">
-  <meta property="og:description" content="A practical introduction to BEM for measured rough surfaces in wheel-rail and tire-road tribology.">
+  <meta property="og:title" content="From Surface Topography to Pressure: Understanding Rough-Contact BEM">
+  <meta property="og:description" content="An introduction to rough-contact BEM: pressure, separation, FFT acceleration and the limits of elastic and elastoplastic formulations.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Abstract tribology surface topography and contact-pressure visualization">
+  <meta property="og:image:alt" content="Abstract tribology surface topography and contact-pressure illustration">
   <meta property="article:published_time" content="2026-08-26">
-  <meta property="article:modified_time" content="2026-08-26">
+  <meta property="article:modified_time" content="2026-08-27">
   <meta property="article:author" content="Wiyao EDJEOU">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Boundary Element Method for Rough Contact Problems">
-  <meta name="twitter:description" content="A practical introduction to BEM for measured rough surfaces in tribology.">
+  <meta name="twitter:title" content="From Surface Topography to Pressure: Understanding Rough-Contact BEM">
+  <meta name="twitter:description" content="An introduction to rough-contact BEM: pressure, separation, FFT acceleration and the limits of elastic and elastoplastic formulations.">
   <meta name="twitter:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Boundary Element Method for Rough Contact Problems: A Practical Introduction",
-    "description": "A practical introduction to the Boundary Element Method for rough elastic contact, applied to wheel-rail and tire-road tribology.",
-    "datePublished": "2026-08-26",
-    "dateModified": "2026-08-26",
-    "image": "https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg",
-    "author": {
-      "@type": "Person",
-      "name": "Wiyao EDJEOU",
-      "url": "https://wiyaoedjeou.github.io/portfolio/"
-    },
-    "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html",
-    "keywords": ["Boundary Element Method", "rough contact", "tribology", "wheel-rail contact", "tire-road contact"]
-  }
-  </script>
-
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html#article",
+  "headline": "From Surface Topography to Pressure: Understanding Rough-Contact BEM",
+  "description": "An introduction to rough-contact BEM: pressure, separation, FFT acceleration and the limits of elastic and elastoplastic formulations.",
+  "inLanguage": "en",
+  "dateModified": "2026-08-27",
+  "datePublished": "2026-08-26",
+  "image": "https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Wiyao EDJEOU",
+    "url": "https://wiyaoedjeou.github.io/portfolio/"
+  },
+  "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html"
+}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
@@ -54,61 +56,64 @@
   <a class="skip-link" href="#article-content">Skip to article</a>
   <div class="veil">
     <header class="top">
-      <a class="back" href="../index.html#blog">← W. EDJEOU — Portfolio &amp; articles</a>
+      <a class="back" href="../index.html?lang=en#blog">← W. EDJEOU — Portfolio &amp; articles</a>
+      <nav class="article-languages" aria-label="Article language"><a href="bem-rough-contact.html" lang="en" hreflang="en" aria-current="page">English</a>
+<a href="../fr/blog/calcul-contact-rugueux-bem.html" lang="fr" hreflang="fr">Français</a></nav>
     </header>
-
     <main id="article-content">
       <article>
-        <p class="eyebrow">Contact Mechanics · Tribology</p>
-        <h1>Boundary Element Method for Rough Contact Problems: A Practical Introduction</h1>
-        <p class="byline">By <strong>Wiyao Edjeou, PhD</strong> — Tribology &amp; Contact Mechanics Engineer · <a href="mailto:wiyaoedjeou@outlook.com">wiyaoedjeou@outlook.com</a></p>
-        <p class="article-meta"><time datetime="2026-08-26">26 August 2026</time> · 6 min read</p>
-
-        <p>Finite element models get most of the attention in contact mechanics, but for rough surface contact — the kind you actually encounter in wheel-rail interaction or tire-road friction — the Boundary Element Method (BEM) is often the more practical tool. It avoids meshing the bulk of the solid, scales far better with surface resolution, and handles the multiscale nature of real roughness naturally. Here's a practical walkthrough based on work done on rail surface roughness and pavement texture.</p>
-
-        <h2>1. Why BEM fits rough contact so well</h2>
-        <p>Rough surface contact spans length scales from millimeters down to microns. A full 3D FEM mesh fine enough to capture micro-asperities is often computationally prohibitive. BEM sidesteps this:</p>
-        <ul>
-          <li>Only the contacting surface needs to be discretized, not the full volume.</li>
-          <li>The elastic half-space assumption, valid when contact dimensions are small relative to body size, lets you use fast, well-established Green's function solutions.</li>
-          <li>FFT-accelerated algorithms make it feasible to run full-resolution roughness maps — hundreds of thousands of surface points — in seconds rather than hours.</li>
-        </ul>
-        <p>This is exactly the kind of problem you meet when trying to explain how surface texture at different scales affects skid resistance or wheel-rail friction: you need enough resolution to resolve the small scales without paying an FEM-level computational cost.</p>
-
-        <h2>2. Setting up the model</h2>
-        <h3>Surface input</h3>
-        <p>Real measured roughness data from profilometry or laser scanning is the ideal input. Represent the surface as a height map on a regular grid — this is what most BEM contact-solving algorithms, such as Polonsky-Keer-type methods, expect.</p>
-        <h3>Elastic properties</h3>
-        <p>For a half-space formulation, only the effective elastic modulus and Poisson's ratio of the contacting pair matter — no need to define full 3D elastic geometry. This is one of the biggest practical wins over FEM: material definition takes minutes, not hours.</p>
-        <h3>Solving the normal contact problem</h3>
-        <p>The core algorithm iterates on the pressure distribution until the gap function satisfies the contact constraints: non-negative pressure, non-negative gap, and the correct total load. FFT-based conjugate-gradient methods are a standard choice. They scale as O(N log N) instead of O(N²) for elastic influence calculations, which makes high-resolution roughness maps tractable.</p>
-
-        <h2>3. Common pitfalls</h2>
-        <ul>
-          <li><strong>Periodic boundary artifacts</strong> — FFT-based solvers assume periodicity. If the measured patch is not representative or large enough, edge effects distort the pressure field. Pad or window the data appropriately.</li>
-          <li><strong>Resolution versus domain size</strong> — capturing both the finest asperities and a representative macroscopic patch requires balancing grid resolution against computational cost. Multiscale decomposition becomes valuable rather than optional.</li>
-          <li><strong>Elastic half-space limits</strong> — for thin coatings or layered materials, the pure half-space assumption does not hold and a layered-medium Green's function is needed.</li>
-        </ul>
-
-        <div class="callout">
-          <p>This kind of rough-contact model supports predictions of real contact area, friction evolution with polishing, and roughness-driven wear or fatigue — recurring questions in tire-road and wheel-rail tribology.</p>
+        <p class="eyebrow">Methods · Contact mechanics</p>
+        <h1>From Surface Topography to Pressure: Understanding Rough-Contact BEM</h1>
+        <p class="byline">By <strong>Wiyao EDJEOU, PhD</strong></p>
+        <p class="article-meta">Updated <time datetime="2026-08-27">27 August 2026</time> · 6 min read</p>
+        <details class="article-toc"><summary>Contents</summary><ol><li><a href="#the-problem-finding-where-the-surfaces-touch">The problem: finding where the surfaces touch</a></li><li><a href="#why-a-surface-formulation-can-be-useful">Why a surface formulation can be useful</a></li><li><a href="#four-physical-conditions-to-satisfy">Four physical conditions to satisfy</a></li><li><a href="#what-the-fft-actually-accelerates">What the FFT actually accelerates</a></li><li><a href="#calculation-quality-begins-with-the-topography">Calculation quality begins with the topography</a></li><li><a href="#what-pressure-helps-explain-and-what-it-cannot-predict-alone">What pressure helps explain, and what it cannot predict alone</a></li><li><a href="#before-interpreting-a-pressure-map">Before interpreting a pressure map</a></li><li><a href="#a-method-serving-a-physical-question">A method serving a physical question</a></li><li><a href="#further-reading">Further reading</a></li><li><a href="#references">References</a></li></ol></details>
+        <div class="article-body">
+<p>A surface map shows peaks and valleys. It does not yet tell us which peaks will carry the load, what pressures they will experience or how the material will deform. That is the role of a contact model. The Boundary Element Method, or BEM, offers a way to connect geometry to mechanical loading, provided the assumptions of the chosen formulation are respected.</p>
+<h2 id="the-problem-finding-where-the-surfaces-touch">The problem: finding where the surfaces touch</h2>
+<p>At the macroscopic scale, we can draw a contact patch between a wheel and a rail, or between rubber and a pavement. At a finer scale, the load is not necessarily distributed over the whole patch. Some asperities touch while others remain separated.</p>
+<p>The difficulty is that the actual contact region is not known in advance. It depends on initial geometry, loading and material deformation. Deformation, in turn, depends on the pressure being sought. The pressure distribution and the separation between the surfaces must therefore be determined together. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>, <a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>A contact model does not simply colour the highest points on a map: it accounts for mechanical interaction between points.</p>
+<h2 id="why-a-surface-formulation-can-be-useful">Why a surface formulation can be useful</h2>
+<p>For a homogeneous elastic half-space, the material’s response to an elementary force is known. These responses can be combined to calculate the displacement caused by a pressure distribution. Green’s functions, and their influence coefficients after discretisation, provide this connection. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>The elastic calculation can consequently be formulated on a surface grid without constructing the complete volume mesh normally used in a three-dimensional finite element model. This is particularly useful when interface geometry is the central information in the problem.</p>
+<p>The advantage depends on assumptions. The size of the region being studied must be compatible with the half-space approximation, and material behaviour, geometry and boundary conditions must match the mechanical kernel used. A thin coating on a substrate, a body of limited thickness or a strongly heterogeneous material is not automatically represented by the same model.</p>
+<p>Nor should all BEM approaches be equated with this particular formulation, or the simplicity of the elastic case extended to every nonlinear problem.</p>
+<h2 id="four-physical-conditions-to-satisfy">Four physical conditions to satisfy</h2>
+<p>For the non-adhesive normal contact considered here, let p denote compressive pressure and g the gap between the surfaces. The solution must satisfy four conditions:</p>
+<ul><li>p ≥ 0: the surfaces may push against each other, but not pull on each other in this formulation.</li><li>g ≥ 0: they must not interpenetrate.</li><li>p × g = 0: a separated point carries no pressure; a loaded point is in contact.</li><li>The sum of cell pressures multiplied by cell areas must equal the prescribed normal load.</li></ul>
+<p>These conditions, detailed in the thesis and the railway study, guide the search for a solution. The algorithm updates pressure and the set of contacting points until the constraints and convergence criteria are satisfied. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>, <a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>The third condition matters: requiring only non-negative pressures and gaps is insufficient. An open cell must also be prevented from transmitting contact load.</p>
+<h2 id="what-the-fft-actually-accelerates">What the FFT actually accelerates</h2>
+<p>Each loaded cell contributes to displacement elsewhere. Directly calculating all these interactions becomes expensive as the grid is refined.</p>
+<p>For the half-space kernel used here, pressure and displacement are related through a convolution. Fast Fourier transforms, or FFTs, accelerate this operation. With N cells, the cost of this evaluation can be reduced from order N² to order N log N. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>That does not mean that a complete problem is always solved in seconds. Iteration count, tolerances, memory, hardware and additional physical mechanisms affect total runtime. Accelerating a convolution is not a performance benchmark for the entire solver.</p>
+<p>FFT calculations also require correct boundary treatment. An incorrectly applied circular convolution may introduce artificial interactions between copies of the domain. The thesis describes zero-padding and an appropriate arrangement of influence coefficients to calculate the intended convolution. Using an FFT does not, by itself, require the physical problem to be periodic. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<h2 id="calculation-quality-begins-with-the-topography">Calculation quality begins with the topography</h2>
+<p>A measured map is a useful input, but not a numerical ground truth ready for immediate use. Its units, spatial sampling, missing points and previous processing need to be known.</p>
+<p>Overall form and roughness must be handled according to the problem. Removing an unwanted tilt is not the same as removing curvature that defines the contact. Likewise, resampling requires filtering consistent with the new resolution: an asperity that is too fine cannot be faithfully represented by only a few cells. <span class="citation">[<a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>Domain size matters as much as grid spacing. A small, highly detailed region may not represent the diversity of the surface. A large but coarse region may miss the asperities that concentrate pressure.</p>
+<p>The compromise must therefore be checked against the quantities of interest: contact area, pressure distribution, displacements or subsurface fields. A visually convincing pressure map is not sufficient evidence of convergence.</p>
+<h2 id="what-pressure-helps-explain-and-what-it-cannot-predict-alone">What pressure helps explain, and what it cannot predict alone</h2>
+<p>Normal elastic contact provides pressure, separation and real contact area, among other outputs. It is a stage in a modelling chain, not a universal model of friction, wear and fatigue.</p>
+<p>For rubber, dissipation depends on viscoelasticity and the rate of loading. The thesis develops a viscoelastic extension to investigate this connection. An elastic pressure map alone does not directly provide tyre-pavement friction. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>For a rail, high local loading may require plasticity to be represented. The railway model therefore couples the contact solution to calculations of plastic strain and internal stress. It includes subsurface discretisation: the statement “only the surface is discretised” cannot be transferred without qualification to this elastoplastic extension. <span class="citation">[<a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>Wear and fatigue analysis introduces further laws and a loading history. The study published in <em>Wear</em> explores this extension while explicitly noting that its numerical predictions are not directly validated by the topographic measurements. <span class="citation">[<a href="#ref-3" aria-label="Reference 3">3</a>]</span></p>
+<h2 id="before-interpreting-a-pressure-map">Before interpreting a pressure map</h2>
+<p>A useful verification starts with a reference case whose response is known, such as a smooth elastic contact compatible with the model assumptions. It continues with checks on load balance, contact constraints and sensitivity to grid resolution.</p>
+<p>The selected material behaviour must then be checked against the calculated loading. A very high peak may identify an important physical mechanism, but it may also reflect inadequate resolution, a measurement artefact or the need to include plasticity that is absent from the model.</p>
+<p>The question is therefore not just “does the solver converge?”, but “which representation of the problem does it converge to?”.</p>
+<h2 id="a-method-serving-a-physical-question">A method serving a physical question</h2>
+<p>BEM is valuable because it connects detailed geometry to a mechanical response under explicit assumptions. Its usefulness should be judged against the problem being addressed, rather than a claim of general superiority over another method.</p>
+<p>This introduction explains the tools. The case study on the first wheel passes after grinding shows what they reveal for measured rail topography; the multiscale texture article explains how relevant surface scales can be selected and interpreted.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul><li><a href="rail-first-passes-after-grinding.html">Why Do the First Wheel Passes After Rail Grinding Matter So Much?</a></li><li><a href="multiscale-roughness-skid-resistance.html">Pavement Texture: Why Scale Changes How We Understand Skid Resistance</a></li></ul>
+<h2 id="references">References</h2>
+<ol class="reference-list"><li id="ref-1">Edjeou, W. (2021). <em>Analyse multiéchelle de la texture des chaussées - effet sur l’adhérence des revêtements routiers</em>. Doctoral thesis, École centrale de Nantes, Chapter 5, particularly Sections 5.1 and 5.2. <a href="https://theses.hal.science/tel-03651239v1">Manuscript on HAL</a>.</li><li id="ref-2">Edjeou, W., Moström, O., Asplund, M., Larsson-Kråik, P.-O., Pérez-Ràfols, F., Larsson, R. and Almqvist, A. (2025; first published online in 2024). <em>Evaluating the impact of rail surface roughness post-grinding: An experimental and elastoplastic modelling approach</em>. Tribology International, 201, 110270. <a href="https://doi.org/10.1016/j.triboint.2024.110270">Article and DOI</a>.</li><li id="ref-3">Edjeou, W., Larsson, P.-O., Larsson, R. and Almqvist, A. (2026; first published online in 2025). <em>Effect of the rail surface topography on wear and fatigue</em>. Wear, 586, 206218. <a href="https://doi.org/10.1016/j.wear.2025.206218">Article and DOI</a>.</li></ol>
+<p><em>This introduction describes a modelling approach. It is neither a software benchmark nor validation for a particular industrial application.</em></p>
         </div>
-
-        <h2>4. Where this leads</h2>
-        <p>The same framework connects naturally to fatigue and wear prediction, because the real contact-pressure distribution — not only nominal pressure — drives local stress, plastic strain, and crack initiation.</p>
-
-        <h2>Selected references</h2>
-        <ol class="reference-list">
-          <li>Edjeou, W. et al. “Effect of the rail surface topography on wear and fatigue.” <em>Wear</em>, 586, 206218 (2025). <a href="https://doi.org/10.1016/j.wear.2025.206218">DOI</a>.</li>
-          <li>Edjeou, W. et al. “Evaluating the Impact of Rail Surface Roughness Post-Grinding.” <em>Tribology International</em>, 201, 110270 (2025). <a href="https://doi.org/10.1016/j.triboint.2024.110270">DOI</a>.</li>
-        </ol>
-
         <footer class="article-end">
-          Working on a rough-contact or friction problem and need a BEM-based model? <a href="mailto:wiyaoedjeou@outlook.com">Get in touch</a>.
-          <nav class="article-nav" aria-label="Article navigation">
-            <a href="../index.html#blog">← All articles</a>
-            <a href="multiscale-roughness-skid-resistance.html">Next: Multiscale roughness →</a>
-          </nav>
+          <a href="../index.html?lang=en#blog">← All articles</a>
+          <a href="../fr/blog/calcul-contact-rugueux-bem.html" lang="fr" hreflang="fr">Lire cet article en français →</a>
         </footer>
       </article>
     </main>

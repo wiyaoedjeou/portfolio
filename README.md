@@ -9,7 +9,8 @@ Static bilingual portfolio for Wiyao EDJEOU, PhD engineer in tribology and conta
 - English/French landing page with experience, expertise, services, and contact sections.
 - Six hand-curated research works in `data/publications.json`.
 - A link to ResearchGate for the complete publication record.
-- Two long-form technical articles in `blog/`.
+- Five long-form technical articles, each available in English and French.
+- Article sources in `content/articles/`; generated pages in `blog/` and `fr/blog/`.
 - Progressive enhancement: the selected research remains readable and indexable if JavaScript or the JSON request fails.
 - Responsive navigation, reduced-motion support, visible keyboard focus, and native form validation.
 
@@ -32,7 +33,12 @@ portfolio/
 │       └── contact.js
 ├── blog/
 │   ├── bem-rough-contact.html
-│   └── multiscale-roughness-skid-resistance.html
+│   ├── multiscale-roughness-skid-resistance.html
+│   └── three additional English articles
+├── fr/blog/
+│   └── five French articles
+├── content/articles/
+│   └── bilingual Markdown sources and metadata
 ├── data/publications.json
 ├── scripts/validate.mjs
 ├── robots.txt
@@ -54,11 +60,13 @@ Then open <http://localhost:8080>.
 Run the repository checks before publishing:
 
 ```bash
+node scripts/build-articles.mjs --check
 node scripts/validate.mjs
-node --check assets/js/*.js
+node --test scripts/test-articles.mjs
+for file in assets/js/*.js scripts/*.mjs; do node --check "$file"; done
 ```
 
-The validator checks the six selected research entries, duplicate HTML IDs, structured data, and local file references.
+The article builder verifies each source and generates ten static pages, the home article cards, and the sitemap. The validator checks the six selected research entries, every generated page, language alternates, duplicate HTML IDs, structured data, and local file references.
 
 ## Updating the selected research
 
@@ -69,3 +77,21 @@ Edit `data/publications.json` manually. Keep exactly six representative works on
 The form uses the EmailJS browser SDK and is configured in `assets/js/contact.js`. It includes native required-field validation, a honeypot, and a lightweight per-session rate limit. If the EmailJS runtime is unavailable, the interface directs visitors to the public email address instead of failing silently.
 
 EmailJS public keys are designed for client-side use, but sending restrictions should still be configured in the EmailJS dashboard for the production domain.
+
+
+## Editing bilingual articles
+
+1. Edit the approved English and French Markdown files in `content/articles/en/` and `content/articles/fr/`.
+2. Update the descriptions, categories and modification date in `content/articles/index.json`.
+3. Regenerate the static website with `node scripts/build-articles.mjs`.
+4. Run the validation commands above, review locally, and publish only after approval.
+
+The ten HTML pages, home-page article cards and sitemap are generated outputs. Commit them together with their Markdown sources when publishing to GitHub Pages; no Node runtime is needed on the public website. Do not hand-edit the generated article pages or the marked article-card region in `index.html`.
+
+The renderer supports headings (H2/H3), paragraphs, links, emphasis, inline code, flat lists and simple tables. It escapes raw HTML and rejects unknown local article links. Add support and tests before using other Markdown features.
+
+Keep existing public URLs stable. The original English BEM and multiscale article addresses are retained. Each language has a self-referencing canonical and reciprocal English/French alternate links; the home page links to both languages even without JavaScript. The landing-page language toggle remains a JavaScript enhancement and is not a separate French landing page.
+
+`published.en` and `published.fr` record actual first-publication dates. The two original English dates remain unchanged. New language versions have no publication date yet: set it on their first actual publication, then rebuild. Do not substitute a translation or revision date for an existing first-publication date.
+
+The proposed scientific illustrations are not included at this stage. The existing preview image is preserved for the two legacy articles and their translations; the three new articles do not claim a record-specific illustration that has not been prepared.

@@ -1,0 +1,131 @@
+{
+  "siteUrl": "https://wiyaoedjeou.github.io/portfolio/",
+  "homeUpdated": "2026-08-27",
+  "articles": [
+    {
+      "id": "water-spray",
+      "source": {
+        "fr": "fr/01-eclaboussures-route-mouillee.md",
+        "en": "en/01-road-wetness-from-water-spray.md"
+      },
+      "path": {
+        "fr": "fr/blog/eclaboussures-route-mouillee.html",
+        "en": "blog/road-wetness-water-spray.html"
+      },
+      "category": {
+        "fr": "Mesure embarquée · Chaussée mouillée",
+        "en": "On-board sensing · Wet pavement"
+      },
+      "description": {
+        "fr": "Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.",
+        "en": "How vibrations caused by water spray can estimate road wetness: sensor placement, signal filtering, detection thresholds and experimental limitations."
+      },
+      "updated": "2026-08-27",
+      "published": {
+        "fr": null,
+        "en": null
+      },
+      "image": null
+    },
+    {
+      "id": "rail-grinding",
+      "source": {
+        "fr": "fr/02-rail-premiers-passages-apres-meulage.md",
+        "en": "en/02-rail-first-passes-after-grinding.md"
+      },
+      "path": {
+        "fr": "fr/blog/rail-premiers-passages-apres-meulage.html",
+        "en": "blog/rail-first-passes-after-grinding.html"
+      },
+      "category": {
+        "fr": "Contact roue-rail · Plasticité",
+        "en": "Wheel-rail contact · Plasticity"
+      },
+      "description": {
+        "fr": "Des empreintes de rail au modèle élastoplastique : comprendre l’effet des aspérités après meulage, sans confondre simulation et durée de vie validée.",
+        "en": "From rail replicas to elastoplastic modelling: how post-grinding asperities affect contact, with a clear distinction between simulation and validated service life."
+      },
+      "updated": "2026-08-27",
+      "published": {
+        "fr": null,
+        "en": null
+      },
+      "image": null
+    },
+    {
+      "id": "new-pavement",
+      "source": {
+        "fr": "fr/03-adherence-chaussee-neuve.md",
+        "en": "en/03-new-pavement-skid-resistance.md"
+      },
+      "path": {
+        "fr": "fr/blog/adherence-chaussee-neuve.html",
+        "en": "blog/new-pavement-skid-resistance.html"
+      },
+      "category": {
+        "fr": "Enrobés · Polissage",
+        "en": "Asphalt mixtures · Polishing"
+      },
+      "description": {
+        "fr": "Pourquoi l’adhérence d’un enrobé augmente avant de diminuer : décapage du liant, polissage des granulats et analyse multiéchelle des essais.",
+        "en": "Why asphalt skid resistance can rise before declining: binder removal, aggregate polishing and multiscale interpretation of laboratory experiments."
+      },
+      "updated": "2026-08-27",
+      "published": {
+        "fr": null,
+        "en": null
+      },
+      "image": null
+    },
+    {
+      "id": "bem",
+      "source": {
+        "fr": "fr/04-bem-contact-rugueux.md",
+        "en": "en/04-bem-rough-contact.md"
+      },
+      "path": {
+        "fr": "fr/blog/calcul-contact-rugueux-bem.html",
+        "en": "blog/bem-rough-contact.html"
+      },
+      "category": {
+        "fr": "Méthodes · Mécanique du contact",
+        "en": "Methods · Contact mechanics"
+      },
+      "description": {
+        "fr": "Une introduction au contact rugueux par BEM : pression, séparation, accélération FFT et limites des formulations élastiques et élastoplastiques.",
+        "en": "An introduction to rough-contact BEM: pressure, separation, FFT acceleration and the limits of elastic and elastoplastic formulations."
+      },
+      "updated": "2026-08-27",
+      "published": {
+        "fr": null,
+        "en": "2026-08-26"
+      },
+      "image": "assets/images/og-tribology-contact.jpg"
+    },
+    {
+      "id": "multiscale",
+      "source": {
+        "fr": "fr/05-texture-multiechelle-adherence.md",
+        "en": "en/05-multiscale-texture-skid-resistance.md"
+      },
+      "path": {
+        "fr": "fr/blog/texture-multiechelle-adherence.html",
+        "en": "blog/multiscale-roughness-skid-resistance.html"
+      },
+      "category": {
+        "fr": "Méthodes · Texture des chaussées",
+        "en": "Methods · Pavement texture"
+      },
+      "description": {
+        "fr": "Comprendre l’analyse multiéchelle des chaussées : mesure, ondelettes, usure des granulats et liens entre texture, contact et adhérence.",
+        "en": "Understanding multiscale pavement analysis: measurement, wavelets, aggregate wear and the connections between texture, contact and skid resistance."
+      },
+      "updated": "2026-08-27",
+      "published": {
+        "fr": null,
+        "en": "2026-08-26"
+      },
+      "image": "assets/images/og-tribology-contact.jpg"
+    }
+  ]
+}

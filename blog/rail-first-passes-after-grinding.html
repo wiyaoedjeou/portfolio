@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Do the First Wheel Passes After Rail Grinding Matter So Much? — Wiyao EDJEOU</title>
+  <meta name="description" content="From rail replicas to elastoplastic modelling: how post-grinding asperities affect contact, with a clear distinction between simulation and validated service life.">
+  <meta name="author" content="Wiyao EDJEOU">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0f1417">
+  <link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html">
+  <link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html">
+  <link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/rail-premiers-passages-apres-meulage.html">
+  <link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wiyao EDJEOU — Portfolio">
+  <meta property="og:url" content="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html">
+  <meta property="og:title" content="Why Do the First Wheel Passes After Rail Grinding Matter So Much?">
+  <meta property="og:description" content="From rail replicas to elastoplastic modelling: how post-grinding asperities affect contact, with a clear distinction between simulation and validated service life.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+
+
+  <meta property="article:modified_time" content="2026-08-27">
+  <meta property="article:author" content="Wiyao EDJEOU">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Why Do the First Wheel Passes After Rail Grinding Matter So Much?">
+  <meta name="twitter:description" content="From rail replicas to elastoplastic modelling: how post-grinding asperities affect contact, with a clear distinction between simulation and validated service life.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html#article",
+  "headline": "Why Do the First Wheel Passes After Rail Grinding Matter So Much?",
+  "description": "From rail replicas to elastoplastic modelling: how post-grinding asperities affect contact, with a clear distinction between simulation and validated service life.",
+  "inLanguage": "en",
+  "dateModified": "2026-08-27",
+  "author": {
+    "@type": "Person",
+    "name": "Wiyao EDJEOU",
+    "url": "https://wiyaoedjeou.github.io/portfolio/"
+  },
+  "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html"
+}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#article-content">Skip to article</a>
+  <div class="veil">
+    <header class="top">
+      <a class="back" href="../index.html?lang=en#blog">← W. EDJEOU — Portfolio &amp; articles</a>
+      <nav class="article-languages" aria-label="Article language"><a href="rail-first-passes-after-grinding.html" lang="en" hreflang="en" aria-current="page">English</a>
+<a href="../fr/blog/rail-premiers-passages-apres-meulage.html" lang="fr" hreflang="fr">Français</a></nav>
+    </header>
+    <main id="article-content">
+      <article>
+        <p class="eyebrow">Wheel-rail contact · Plasticity</p>
+        <h1>Why Do the First Wheel Passes After Rail Grinding Matter So Much?</h1>
+        <p class="byline">By <strong>Wiyao EDJEOU, PhD</strong></p>
+        <p class="article-meta">Updated <time datetime="2026-08-27">27 August 2026</time> · 8 min read</p>
+        <details class="article-toc"><summary>Contents</summary><ol><li><a href="#maintaining-a-surface-also-gives-it-a-new-starting-condition">Maintaining a surface also gives it a new starting condition</a></li><li><a href="#taking-an-impression-instead-of-moving-the-rail">Taking an impression instead of moving the rail</a></li><li><a href="#what-changes-after-the-first-passes">What changes after the first passes?</a></li><li><a href="#why-a-purely-elastic-model-is-not-always-sufficient">Why a purely elastic model is not always sufficient</a></li><li><a href="#including-measured-roughness-without-claiming-to-retain-every-detail">Including measured roughness without claiming to retain every detail</a></li><li><a href="#what-roughness-changes-in-the-calculation">What roughness changes in the calculation</a></li><li><a href="#a-smoother-surface-can-retain-a-mechanical-history">A smoother surface can retain a mechanical history</a></li><li><a href="#the-assumptions-that-frame-the-interpretation">The assumptions that frame the interpretation</a></li><li><a href="#from-initial-contact-to-wear-and-fatigue">From initial contact to wear and fatigue</a></li><li><a href="#what-this-contributes-to-the-discussion-of-grinding">What this contributes to the discussion of grinding</a></li><li><a href="#further-reading">Further reading</a></li><li><a href="#references">References</a></li></ol></details>
+        <div class="article-body">
+<p>Rail grinding is a maintenance operation: it removes material and corrects the surface condition. It also leaves machining marks. Their height may decrease rapidly under traffic, but the stresses they generate initially do not necessarily disappear from the material’s history when the marks fade. Understanding this phase requires looking at both the topography and what happens inside the material.</p>
+<h2 id="maintaining-a-surface-also-gives-it-a-new-starting-condition">Maintaining a surface also gives it a new starting condition</h2>
+<p>A rail surface evolves under repeated wheel contacts. Wear and rolling contact fatigue contribute to that evolution. Grinding removes a layer of material, corrects the profile and addresses certain surface defects. The research discussed here does not call its maintenance value into question.</p>
+<p>The question is more specific: what happens to contact when the roughness actually produced by grinding is included?</p>
+<p>A transverse profile describes the overall shape of the rail. At a finer scale, grinding marks introduce peaks, valleys and local changes in orientation. Two calculations using the same overall profile can therefore produce very different pressure distributions depending on whether these details are represented.</p>
+<p>The study published in <em>Tribology International</em>, volume 201, combines field measurements with an elastoplastic contact model to examine this difference. It appeared online in 2024 in a volume dated 2025. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<h2 id="taking-an-impression-instead-of-moving-the-rail">Taking an impression instead of moving the rail</h2>
+<p>The first challenge is experimental. It is not always possible to measure a railway surface directly in the field with the resolution and access available in a laboratory.</p>
+<p>The selected method uses silicone replicas. A purpose-designed mould reproduces the transverse profile of the rail head. An optical profilometer then measures the replica surfaces. Geometric information is thus transferred from the track to the laboratory without removing a rail section. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>The campaigns took place on a straight section of track in Luleå, Sweden, after grinding and over the following weeks. The measurements capture the newly ground surface and its evolution under traffic. The loaded regions progressively become distinguishable from less affected areas.</p>
+<p>The replica is not the end of the measurement chain, however. The acquired topography must be processed to address missing points and artefacts and to separate overall form from roughness. These operations are documented in the study. They matter as much as sensor selection because the small irregularities retained in the data will subsequently generate local loading in the model.</p>
+<h2 id="what-changes-after-the-first-passes">What changes after the first passes?</h2>
+<p>Photographs show grinding marks becoming less pronounced and running bands appearing smoother. Topographic measurements quantify these changes beyond a visual impression.</p>
+<p>The analysis uses the arithmetical mean height, Sa, together with parameters describing the peaks, core region and valleys. Their evolution indicates a substantial reduction in roughness early in the monitoring period. In this campaign, the measurement taken three days after grinding already shows a marked change. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>That interval is an observation specific to the site and traffic studied, not a universal stabilisation time. It should not be transferred to every railway line. Transported load, wheel profiles, contact conditions and the environment can all affect the evolution.</p>
+<p>The observed flattening results from mechanisms that may act together: material removal and plastic deformation. A smoother surface alone cannot reveal how much each contributed. It shows the geometric outcome of their action, not the material’s complete mechanical history.</p>
+<h2 id="why-a-purely-elastic-model-is-not-always-sufficient">Why a purely elastic model is not always sufficient</h2>
+<p>In elastic behaviour, a material returns to its original state when the load is removed. Plastic behaviour introduces a permanent component of deformation.</p>
+<p>Beneath an asperity, the load may be transmitted through a very small region. Local loading may consequently require an elastoplastic description, even when a smoother representation of the contact appears less severe. Plasticity changes the geometry, redistributes pressure and leaves a residual state after unloading.</p>
+<p>The model developed in this first study solves frictionless normal contact between the wheel and rail. It uses a boundary integral approach within the small-strain framework and the half-space approximation. The rail material follows an elastoplastic law with strain hardening, meaning that its resistance to further plastic deformation evolves. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>This formulation calculates interface pressures, displacements, and stress and strain fields within the rail. In this publication, it does not yet simulate the complete sequence of rolling contacts with tangential forces. That limitation defines precisely what the calculation can establish.</p>
+<h2 id="including-measured-roughness-without-claiming-to-retain-every-detail">Including measured roughness without claiming to retain every detail</h2>
+<p>The comparison starts with a reference contact without the fine roughness component, then adds that component to the rail profile. “Without roughness” therefore does not mean that all wheel and rail geometry has been removed. The overall contact geometry remains.</p>
+<p>The measured topography is adapted to the computational domain. Because the measurement resolution is finer than the numerical grid, filtering precedes resampling. Wavelengths too short to be resolved adequately cannot simply be retained unchanged. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>This may sound like a purely numerical issue, but it is also a physical one. A poorly represented asperity can produce an unreliable local pressure. Computational resolution must therefore be consistent with the surface scales being investigated.</p>
+<p>In the presented case, a normal load of 67 kN is applied, corresponding to the estimated mean load per wheel during the measurement period. The solver introduces this load progressively. The increments used to reach the prescribed load are not successive train passes. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<h2 id="what-roughness-changes-in-the-calculation">What roughness changes in the calculation</h2>
+<p>With the rough topography, load transfer becomes much less uniform. Pressure peaks appear near the most heavily loaded asperities, and plastic fields become more concentrated close to the surface.</p>
+<p>Several values illustrate the size of the difference in the calculated configuration:</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table"><table><thead><tr><th scope="col">Calculated maximum quantity</th><th scope="col" class="numeric">Contact without fine roughness</th><th scope="col" class="numeric">Contact with measured roughness</th></tr></thead><tbody><tr><th scope="row">Contact pressure</th><td class="numeric">1.00 GPa</td><td class="numeric">4.33 GPa</td></tr><tr><th scope="row">Residual equivalent plastic strain</th><td class="numeric">0.48%</td><td class="numeric">2.58%</td></tr><tr><th scope="row">Residual von Mises equivalent stress</th><td class="numeric">0.33 GPa</td><td class="numeric">1.64 GPa</td></tr></tbody></table></div>
+<p>These values come from Figures 3-6, 3-7 and 3-9 of the study. They are local simulation maxima associated with the selected load, geometry, material and discretisation. They are neither mean pressures over the entire contact patch nor direct stress measurements in an in-service rail. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>The main point is not a universal multiplication factor. It is that neglecting roughness can conceal highly loaded regions. Overall profile shape and surface detail both contribute to the distribution of forces.</p>
+<h2 id="a-smoother-surface-can-retain-a-mechanical-history">A smoother surface can retain a mechanical history</h2>
+<p>After unloading, the elastic component of deformation is released, but a plastic component remains. The calculation therefore produces a residual state: the material is no longer exactly as it was before contact.</p>
+<p>This explains why the final appearance of the surface does not necessarily tell its entire story. Asperities may be flattened or worn away after producing severe local loading. Their subsequent reduction does not mean that the loading never occurred.</p>
+<p>In the study, roughness increases concentrations of residual strain and stress close to the surface. These findings motivate investigation of possible consequences for defect initiation and rolling contact fatigue. By themselves, they are not observations of cracking or complete service-life predictions. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>One shortcut is particularly important to avoid: a stress maximum is not a count of cycles to failure. Fatigue analysis requires the loading history, the relevant material properties and an appropriate damage model.</p>
+<h2 id="the-assumptions-that-frame-the-interpretation">The assumptions that frame the interpretation</h2>
+<p>The first study deliberately isolates part of the problem. Contact is normal and frictionless, small strains are assumed, and the geometry corresponds to a straight section of track. Its conclusions cannot automatically be transferred to every wheel-rail configuration.</p>
+<p>Another limitation concerns the metallurgical state of the surface. Grinding can produce a surface layer with properties different from those of the underlying material. This hardened layer is not explicitly represented in the model. The paper notes that including it could change the calculated plastic strains. <span class="citation">[<a href="#ref-1" aria-label="Reference 1">1</a>]</span></p>
+<p>Finally, the roughness description depends on acquisition, processing and grid choices. These do not make the result uninformative; they define its domain of validity. For maintenance applications, an explanatory calculation is more useful when the situations it represents, and those it does not, are clearly identified.</p>
+<h2 id="from-initial-contact-to-wear-and-fatigue">From initial contact to wear and fatigue</h2>
+<p>A subsequent study published in <em>Wear</em> extends this approach to rolling contact. It introduces tangential forces and stick and slip regions within the contact patch, then combines contact calculations with Archard-law wear analysis and a fatigue model. <span class="citation">[<a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>This development makes it possible to investigate accumulated mechanical effects over repeated cycles. It does not automatically turn simulations into field-validated service-life forecasts. The second publication explicitly states that the experimental data provide realistic geometry but do not directly validate the numerical wear and fatigue predictions. <span class="citation">[<a href="#ref-2" aria-label="Reference 2">2</a>]</span></p>
+<p>The scientific progression is significant: measure the surface, understand its effect on contact, then study the cumulative consequences. Each stage adds mechanisms, but also validation requirements.</p>
+<h2 id="what-this-contributes-to-the-discussion-of-grinding">What this contributes to the discussion of grinding</h2>
+<p>The issue is not an abstract choice between a rough surface and a perfectly smooth one. Grinding serves maintenance objectives under specific material and operational constraints. These studies show why the surface condition left by the operation also deserves attention.</p>
+<p>Initial contacts may change the topography rapidly while establishing a residual mechanical state that should be considered. Transient roughness should therefore not be treated as mechanically negligible simply because it diminishes.</p>
+<p>The most useful contribution is the connection between field measurements and calculation: a real surface impression becomes a model input, and the model reveals loading that surface inspection alone cannot show. This provides a basis for better maintenance questions, not a universal grinding prescription.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul><li><a href="bem-rough-contact.html">From Surface Topography to Pressure: Understanding Rough-Contact BEM</a></li></ul>
+<h2 id="references">References</h2>
+<ol class="reference-list"><li id="ref-1">Edjeou, W., Moström, O., Asplund, M., Larsson-Kråik, P.-O., Pérez-Ràfols, F., Larsson, R. and Almqvist, A. (2025; first published online in 2024). <em>Evaluating the impact of rail surface roughness post-grinding: An experimental and elastoplastic modelling approach</em>. Tribology International, 201, 110270. <a href="https://doi.org/10.1016/j.triboint.2024.110270">Article and DOI</a>.</li><li id="ref-2">Edjeou, W., Larsson, P.-O., Larsson, R. and Almqvist, A. (2026; first published online in 2025). <em>Effect of the rail surface topography on wear and fatigue</em>. Wear, 586, 206218. <a href="https://doi.org/10.1016/j.wear.2025.206218">Article and DOI</a>.</li></ol>
+<p><em>This article presents collaborative research. The numerical results are neither rail acceptance criteria nor a maintenance procedure.</em></p>
+        </div>
+        <footer class="article-end">
+          <a href="../index.html?lang=en#blog">← All articles</a>
+          <a href="../fr/blog/rail-premiers-passages-apres-meulage.html" lang="fr" hreflang="fr">Lire cet article en français →</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

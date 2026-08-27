@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence — Wiyao EDJEOU</title>
+  <meta name="description" content="Comprendre l’analyse multiéchelle des chaussées : mesure, ondelettes, usure des granulats et liens entre texture, contact et adhérence.">
+  <meta name="author" content="Wiyao EDJEOU">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0f1417">
+  <link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html">
+  <link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html">
+  <link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html">
+  <link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wiyao EDJEOU — Portfolio">
+  <meta property="og:url" content="https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html">
+  <meta property="og:title" content="Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence">
+  <meta property="og:description" content="Comprendre l’analyse multiéchelle des chaussées : mesure, ondelettes, usure des granulats et liens entre texture, contact et adhérence.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Illustration abstraite de topographie et de pression de contact en tribologie">
+
+  <meta property="article:modified_time" content="2026-08-27">
+  <meta property="article:author" content="Wiyao EDJEOU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence">
+  <meta name="twitter:description" content="Comprendre l’analyse multiéchelle des chaussées : mesure, ondelettes, usure des granulats et liens entre texture, contact et adhérence.">
+  <meta name="twitter:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html#article",
+  "headline": "Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence",
+  "description": "Comprendre l’analyse multiéchelle des chaussées : mesure, ondelettes, usure des granulats et liens entre texture, contact et adhérence.",
+  "inLanguage": "fr",
+  "dateModified": "2026-08-27",
+  "image": "https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Wiyao EDJEOU",
+    "url": "https://wiyaoedjeou.github.io/portfolio/"
+  },
+  "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html"
+}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#article-content">Aller à l’article</a>
+  <div class="veil">
+    <header class="top">
+      <a class="back" href="../../index.html?lang=fr#blog">← W. EDJEOU — Portfolio et articles</a>
+      <nav class="article-languages" aria-label="Langue de l’article"><a href="../../blog/multiscale-roughness-skid-resistance.html" lang="en" hreflang="en">English</a>
+<a href="texture-multiechelle-adherence.html" lang="fr" hreflang="fr" aria-current="page">Français</a></nav>
+    </header>
+    <main id="article-content">
+      <article>
+        <p class="eyebrow">Méthodes · Texture des chaussées</p>
+        <h1>Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence</h1>
+        <p class="byline">Par <strong>Wiyao EDJEOU, PhD</strong></p>
+        <p class="article-meta">Mis à jour le <time datetime="2026-08-27">27 août 2026</time> · 6 min de lecture</p>
+        <details class="article-toc"><summary>Sommaire</summary><ol><li><a href="#une-moyenne-ne-decrit-pas-l-organisation-du-relief">Une moyenne ne décrit pas l’organisation du relief</a></li><li><a href="#microtexture-et-macrotexture-des-reperes-pas-deux-mondes-separes">Microtexture et macrotexture : des repères, pas deux mondes séparés</a></li><li><a href="#mesurer-une-gamme-d-echelles-pas-toute-la-surface-a-la-fois">Mesurer une gamme d’échelles, pas toute la surface à la fois</a></li><li><a href="#ce-qu-ajoutent-les-ondelettes">Ce qu’ajoutent les ondelettes</a></li><li><a href="#quels-parametres-suivre-a-chaque-echelle">Quels paramètres suivre à chaque échelle ?</a></li><li><a href="#ce-que-montre-le-cas-des-granulats">Ce que montre le cas des granulats</a></li><li><a href="#passer-de-la-geometrie-a-un-mecanisme">Passer de la géométrie à un mécanisme</a></li><li><a href="#et-lorsque-la-route-est-mouillee">Et lorsque la route est mouillée ?</a></li><li><a href="#ce-qu-il-faut-retenir">Ce qu’il faut retenir</a></li><li><a href="#pour-approfondir">Pour approfondir</a></li><li><a href="#references">Références</a></li></ol></details>
+        <div class="article-body">
+<p>Deux surfaces peuvent présenter une rugosité moyenne comparable et pourtant ne pas solliciter un pneumatique de la même manière. Des reliefs larges, de petites aspérités et des sommets plus ou moins arrondis n’ont pas des effets interchangeables. L’analyse multiéchelle sert à décrire ces différences et à comprendre ce qui change lorsque la surface s’use.</p>
+<h2 id="une-moyenne-ne-decrit-pas-l-organisation-du-relief">Une moyenne ne décrit pas l’organisation du relief</h2>
+<p>Un paramètre de hauteur renseigne sur l’amplitude des irrégularités. Il ne dit pas, à lui seul, comment elles sont réparties dans l’espace. Une succession de petites aspérités et quelques reliefs plus larges peuvent produire des valeurs moyennes proches.</p>
+<p>La gomme ne réagit pourtant pas uniquement à une hauteur. La pente des sommets, leur courbure et leur espacement influencent le contact et la déformation. Il faut donc décrire à la fois l’amplitude et les tailles caractéristiques du relief. Cette articulation est au cœur de la démarche développée dans ma thèse. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>]</span></p>
+<p>L’idée n’est pas de chercher un indicateur magique, mais d’éviter qu’une moyenne ne mélange des évolutions physiques différentes.</p>
+<h2 id="microtexture-et-macrotexture-des-reperes-pas-deux-mondes-separes">Microtexture et macrotexture : des repères, pas deux mondes séparés</h2>
+<p>Dans le découpage rappelé par les travaux sur les granulats, la microtexture correspond à des tailles horizontales inférieures à environ 0,5 mm, tandis que la macrotexture s’étend approximativement de 0,5 à 50 mm. Ces catégories aident à situer les reliefs observés. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>La macrotexture intervient notamment dans la circulation de l’eau et les conditions de contact. Les irrégularités plus fines participent à l’interaction locale entre la gomme et les surfaces minérales. Mais ces fonctions ne sont pas exclusives : il serait trop simple d’attribuer toute l’eau à une échelle et tout le frottement à une autre.</p>
+<p>La vitesse ajoute une dimension importante. Pour un motif idéal de longueur d’onde λ parcouru à vitesse v, une fréquence caractéristique de sollicitation est de l’ordre de v/λ. Cette relation cinématique aide à comprendre pourquoi la même texture peut solliciter la gomme différemment lorsque la vitesse change. Elle n’est pas, à elle seule, un modèle de frottement. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>]</span></p>
+<p>Le matériau compte également : la réponse viscoélastique de la gomme dépend du rythme de sollicitation et de la température. Une échelle géométrique ne possède donc pas un effet indépendant des conditions d’essai.</p>
+<h2 id="mesurer-une-gamme-d-echelles-pas-toute-la-surface-a-la-fois">Mesurer une gamme d’échelles, pas toute la surface à la fois</h2>
+<p>Une mesure possède une résolution et une étendue. Un petit champ observé finement permet d’examiner de petites aspérités, mais pas nécessairement l’organisation de reliefs beaucoup plus grands. Une mesure plus étendue peut manquer les détails fins.</p>
+<p>Le protocole doit préciser le pas d’échantillonnage, la taille des cartes, les zones mesurées et les traitements effectués. Si l’on compare deux états d’usure avec des traitements différents, une variation apparente peut venir de la chaîne de mesure plutôt que de la surface.</p>
+<p>Dans les travaux sur les granulats, des cartes tridimensionnelles sont acquises par un instrument optique à variation de focalisation, puis exploitées pour suivre la texture au cours du polissage. Les mesures de frottement et de topographie sont complémentaires : l’une renseigne sur la réponse fonctionnelle, l’autre sur une partie de ses causes géométriques. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<h2 id="ce-qu-ajoutent-les-ondelettes">Ce qu’ajoutent les ondelettes</h2>
+<p>La décomposition par ondelettes examine une même carte à différentes tailles caractéristiques. Elle permet de reconstruire des composantes de surface associées aux échelles analysées, puis d’en calculer les paramètres. Les études présentées ici emploient une transformée continue et une ondelette dite du chapeau mexicain. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>, <a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<p>On ne fabrique pas physiquement plusieurs chaussées. On produit différentes représentations d’une même mesure. La méthode aide à repérer si une modification touche surtout les petits sommets, les reliefs plus larges ou plusieurs gammes simultanément.</p>
+<p>Cette lecture doit rester liée aux limites de l’acquisition. Une transformation mathématique ne recrée pas les détails que l’instrument n’a pas mesurés. Les résultats dépendent aussi du choix des échelles, de la reconstruction et du traitement des bords.</p>
+<h2 id="quels-parametres-suivre-a-chaque-echelle">Quels paramètres suivre à chaque échelle ?</h2>
+<p>Les travaux combinent plusieurs descriptions : Sq pour la dispersion des hauteurs, Sdq pour les pentes, Ssc pour la courbure des sommets et Vmp pour leur volume. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>, <a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<p>Leur intérêt est complémentaire. Une diminution de hauteur ne renseigne pas exactement comme un arrondi des sommets ou une réduction de pente. Lorsqu’on les calcule échelle par échelle, on peut mieux situer les transformations que leur valeur globale résume.</p>
+<p>Le résultat devient une famille de courbes de texture en fonction de l’échelle et de l’état d’usure. On peut ensuite la comparer aux mesures de frottement. Une corrélation aide à identifier des échelles pertinentes ; elle ne démontre pas automatiquement un mécanisme causal unique.</p>
+<h2 id="ce-que-montre-le-cas-des-granulats">Ce que montre le cas des granulats</h2>
+<p>La publication dans <em>Surface Topography: Metrology and Properties</em> étudie cinq types de surfaces de granulats présentant des compositions minéralogiques et des résistances au polissage différentes. Ce programme ne doit pas être confondu avec celui des sept formulations d’enrobés étudiées dans l’autre publication. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>, <a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<p>Les observations mettent en évidence une diminution du frottement pendant le polissage. L’évolution de texture permet de discuter deux mécanismes : une usure générale et, dans les granulats polyminéraux, une usure différentielle liée aux différences de résistance entre minéraux. Cette dernière peut maintenir ou recréer certains reliefs pendant que d’autres s’aplanissent. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Les paramètres globaux ne séparent pas toujours clairement ces contributions. L’analyse multiéchelle rend leurs différences plus lisibles. Dans ce programme, les corrélations avec la diminution du frottement sont particulièrement intéressantes aux échelles mesurées allant jusqu’à environ 1 mm. <span class="citation">[<a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Ce résultat ne veut pas dire que les reliefs plus grands sont inutiles, ni que toute texture inférieure à 1 mm améliore l’adhérence. Il désigne une gamme informative dans une expérience donnée, avec des matériaux et un protocole précis.</p>
+<h2 id="passer-de-la-geometrie-a-un-mecanisme">Passer de la géométrie à un mécanisme</h2>
+<p>Pour expliquer physiquement le frottement, la texture doit être mise en relation avec le contact et le comportement de la gomme. Un modèle peut estimer quelles régions portent la charge et comment les aspérités déforment le matériau. La viscoélasticité permet ensuite d’étudier une partie de la dissipation associée à cette déformation. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>]</span></p>
+<p>Ces étapes ne sont pas interchangeables. Une corrélation texture-frottement n’est pas un calcul de contact ; une carte de pression élastique n’est pas un coefficient de frottement complet. L’article d’introduction à la BEM explique cette seconde étape et ses hypothèses.</p>
+<p>Les enrobés ajoutent une difficulté : leur état de surface dépend également du liant et de son décapage. C’est pourquoi l’article consacré à l’adhérence d’une chaussée neuve traite séparément son augmentation initiale puis sa diminution. Il applique les outils présentés ici à une trajectoire d’évolution particulière. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<h2 id="et-lorsque-la-route-est-mouillee">Et lorsque la route est mouillée ?</h2>
+<p>L’eau ne disparaît pas du problème parce que la texture est bien caractérisée. Sa distribution, les voies d’écoulement et les conditions de passage modifient le contact. Une profondeur moyenne de texture ne remplace pas une description complète de l’eau présente.</p>
+<p>Les travaux sur les vibrations provoquées par les projections d’eau illustrent ce point : la texture intervient aussi dans un problème de mesure embarquée. L’estimation d’une épaisseur d’eau reste cependant distincte de l’estimation du frottement. Le cas d’étude sur les éclaboussures développe cette distinction. <span class="citation">[<a href="#ref-4" aria-label="Référence 4">4</a>]</span></p>
+<h2 id="ce-qu-il-faut-retenir">Ce qu’il faut retenir</h2>
+<p>L’analyse multiéchelle ne promet pas un classement universel des chaussées à partir d’une carte. Elle permet de poser des questions plus précises : quelles tailles de relief ont changé, quels mécanismes peuvent l’expliquer et quelle relation observe-t-on avec la réponse mesurée ?</p>
+<p>Elle donne ainsi une lecture plus riche qu’une opposition entre surface « rugueuse » et surface « lisse ». Son utilité vient de la cohérence entre mesure, traitement, interprétation physique et validation expérimentale.</p>
+<h2 id="pour-approfondir">Pour approfondir</h2>
+<ul><li><a href="adherence-chaussee-neuve.html">Pourquoi une chaussée neuve peut-elle gagner en adhérence avant d’en perdre ?</a></li><li><a href="eclaboussures-route-mouillee.html">Ce que les éclaboussures peuvent nous apprendre sur une route mouillée</a></li><li><a href="calcul-contact-rugueux-bem.html">Du relief à la pression : comprendre le calcul du contact rugueux par BEM</a></li></ul>
+<h2 id="references">Références</h2>
+<ol class="reference-list"><li id="ref-1">Edjeou, W. (2021). <em>Analyse multiéchelle de la texture des chaussées - effet sur l’adhérence des revêtements routiers</em>. Thèse, École centrale de Nantes. <a href="https://theses.hal.science/tel-03651239v1">Manuscrit sur HAL</a>.</li><li id="ref-2">Edjeou, W., Cerezo, V., Zahouani, H. et Do, M.-T. (2023). <em>Contribution of multiscale analysis to the understanding of friction evolution of aggregates surfaces</em>. Surface Topography: Metrology and Properties, 11, 014006. <a href="https://doi.org/10.1088/2051-672X/acb95d">Article et DOI</a>.</li><li id="ref-3">Edjeou, W., Cerezo, V., Do, M.-T., Zahouani, H., Ropert, C. et Augris, P. (mise en ligne en 2023). <em>Multiscale analyse of the relation between skid resistance and pavements surfaces texture evolution with polishing</em>. Road Materials and Pavement Design. <a href="https://doi.org/10.1080/14680629.2023.2191723">Article et DOI</a>.</li><li id="ref-4">Edjeou, W., Riahi, E., Gennesseaux, M., Cerezo, V. et Do, M.-T. (2024 ; mise en ligne en décembre 2023). <em>Estimation of Road Wetness from a Passenger Car</em>. Lubricants, 12, 2. <a href="https://doi.org/10.3390/lubricants12010002">Article et DOI</a>.</li></ol>
+<p><em>Cette introduction distingue des observations expérimentales, des outils d’analyse et des interprétations mécaniques. Elle ne fournit pas une règle de dimensionnement ni un seuil universel d’adhérence.</em></p>
+        </div>
+        <footer class="article-end">
+          <a href="../../index.html?lang=fr#blog">← Tous les articles</a>
+          <a href="../../blog/multiscale-roughness-skid-resistance.html" lang="en" hreflang="en">Read this article in English →</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

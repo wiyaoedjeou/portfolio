@@ -194,3 +194,28 @@ ul li::before {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+
+/* Bilingual long-form articles */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.article-languages { display: flex; gap: 0.4rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; }
+.article-languages a { padding: 0.35rem 0.55rem; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); text-decoration: none; }
+.article-languages a:hover, .article-languages a[aria-current='page'] { border-color: var(--accent); color: var(--accent-strong); }
+.article-toc { margin: 0 0 2.5rem; padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 4px; background: var(--bg-raised); }
+.article-toc summary { cursor: pointer; color: var(--accent-strong); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+.article-toc ol { margin: 1rem 0 0; padding-left: 1.25rem; }
+.article-toc li { padding-left: 0.2rem; font-size: 0.88rem; }
+.article-toc a, .article-body a { color: var(--accent-strong); text-underline-offset: 0.2em; }
+.citation { white-space: nowrap; font-size: 0.84em; }
+.citation a { text-decoration: none; }
+.table-scroll { overflow-x: auto; margin: 1.5rem 0; }
+.table-scroll:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 0.9rem; }
+th, td { padding: 0.75rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+thead th { color: var(--accent-strong); background: var(--bg-raised); }
+tbody th { color: var(--text); font-weight: 500; }
+.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+.article-body code { padding: 0.08rem 0.3rem; border-radius: 3px; background: var(--bg-raised); font-family: 'IBM Plex Mono', monospace; }
+.article-end { display: flex; justify-content: space-between; gap: 1.25rem; }
+.article-end a { color: var(--accent-strong); }
+@media (max-width: 520px) { .top { align-items: flex-start; flex-direction: column; } .article-end { flex-direction: column; } }

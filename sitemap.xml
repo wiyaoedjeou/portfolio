@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://wiyaoedjeou.github.io/portfolio/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/</loc><lastmod>2026-08-27</lastmod></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/eclaboussures-route-mouillee.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/road-wetness-water-spray.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/rail-premiers-passages-apres-meulage.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/fr/blog/rail-premiers-passages-apres-meulage.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/rail-premiers-passages-apres-meulage.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/rail-first-passes-after-grinding.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/blog/new-pavement-skid-resistance.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/new-pavement-skid-resistance.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/adherence-chaussee-neuve.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/new-pavement-skid-resistance.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/fr/blog/adherence-chaussee-neuve.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/new-pavement-skid-resistance.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/adherence-chaussee-neuve.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/new-pavement-skid-resistance.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/calcul-contact-rugueux-bem.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/fr/blog/calcul-contact-rugueux-bem.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/calcul-contact-rugueux-bem.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/bem-rough-contact.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html"/></url>
+  <url><loc>https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html</loc><lastmod>2026-08-27</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html"/><xhtml:link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/texture-multiechelle-adherence.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/multiscale-roughness-skid-resistance.html"/></url>
 </urlset>

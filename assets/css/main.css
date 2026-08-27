@@ -1060,3 +1060,15 @@ footer {
 
 /* ─── HONEYPOT (hidden from humans, visible to bots) ─── */
 .form-honey { display: none !important; }
+
+
+/* Generated bilingual article collection */
+.blog-intro { max-width: 68ch; margin: -0.25rem 0 2rem; color: rgba(255,255,255,0.74); line-height: 1.7; }
+.blog-card h3 a { color: var(--white); text-decoration: none; }
+.blog-card h3 a:hover { color: var(--teal-light); }
+.blog-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; }
+.blog-languages { display: flex; gap: 0.45rem; font-family: 'Space Mono', monospace; font-size: 0.67rem; }
+.blog-languages a { padding: 0.3rem 0.45rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 3px; color: var(--teal-light); text-decoration: none; }
+.blog-languages a:hover { border-color: var(--accent); color: var(--accent); }
+.blog-card:last-child:nth-child(odd) { grid-column: 1 / -1; min-height: 230px; }
+@media (max-width: 900px) { .blog-card:last-child:nth-child(odd) { grid-column: auto; } .blog-actions { align-items: flex-start; flex-direction: column; } }
