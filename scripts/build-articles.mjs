@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderArticle, escapeHtml as e } from './article-renderer.mjs';
@@ -17,6 +18,10 @@ const outputs = new Map();
 if (config.siteUrl !== 'https://wiyaoedjeou.github.io/portfolio/') throw new Error('Unexpected production origin.');
 const absolute = route => new URL(route, config.siteUrl).href;
 const relative = (from, to) => path.posix.relative(path.posix.dirname(from), to);
+const styleVersions = new Map(await Promise.all(['assets/css/main.css', 'assets/css/article.css'].map(async file => [
+  file, createHash('sha256').update(await readFile(path.join(root, file))).digest('hex').slice(0, 12),
+])));
+const stylesheetHref = (from, file) => `${relative(from, file)}?v=${styleVersions.get(file)}`;
 const date = (value, lang) => new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${value}T12:00:00Z`));
 const isDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
 
@@ -66,6 +71,11 @@ function page(article, lang) {
   const description = article.description[lang];
   const locale = lang === 'fr' ? 'fr_FR' : 'en_GB';
   const published = article.published?.[lang];
+  const time = value => `<time datetime="${value}">${e(date(value, lang))}</time>`;
+  const updatedText = `${lang === 'fr' ? 'Mis à jour le' : 'Updated'} ${time(article.updated)}`;
+  const dateText = published
+    ? `${lang === 'fr' ? 'Publié le' : 'Published'} ${time(published)}${published !== article.updated ? ' · ' + updatedText : ''}`
+    : updatedText;
   const schema = {
     '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': `${url}#article`,
     headline: r.title, description, inLanguage: lang, dateModified: article.updated,
@@ -109,7 +119,7 @@ ${image ? `  <meta name="twitter:image" content="${e(image)}">` : ''}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${e(relative(route, 'assets/css/article.css'))}">
+  <link rel="stylesheet" href="${e(stylesheetHref(route, 'assets/css/article.css'))}">
 </head>
 <body>
   <a class="skip-link" href="#article-content">${lang === 'fr' ? 'Aller à l’article' : 'Skip to article'}</a>
@@ -123,7 +133,7 @@ ${image ? `  <meta name="twitter:image" content="${e(image)}">` : ''}
         <p class="eyebrow">${e(article.category[lang])}</p>
         <h1>${e(r.title)}</h1>
         <p class="byline">${lang === 'fr' ? 'Par' : 'By'} <strong>Wiyao EDJEOU, PhD</strong></p>
-        <p class="article-meta">${lang === 'fr' ? 'Mis à jour le' : 'Updated'} <time datetime="${article.updated}">${e(date(article.updated, lang))}</time> · ${r.minutes} ${lang === 'fr' ? 'min de lecture' : 'min read'}</p>
+        <p class="article-meta">${dateText} · ${r.minutes} ${lang === 'fr' ? 'min de lecture' : 'min read'}</p>
         <details class="article-toc"><summary>${lang === 'fr' ? 'Sommaire' : 'Contents'}</summary><ol>${r.outline.map(item => `<li><a href="#${item.id}">${e(item.text)}</a></li>`).join('')}</ol></details>
         <div class="article-body">
 ${r.html}
@@ -160,7 +170,10 @@ const index = await readFile(path.join(root, 'index.html'), 'utf8');
 const start = '<!-- articles:generated:start -->';
 const end = '<!-- articles:generated:end -->';
 if (index.split(start).length !== 2 || index.split(end).length !== 2) throw new Error('Expected exactly one generated article region in index.html.');
-outputs.set('index.html', index.slice(0, index.indexOf(start) + start.length) + '\n' + cards() + '\n' + index.slice(index.indexOf(end)));
+const home = index.slice(0, index.indexOf(start) + start.length) + '\n' + cards() + '\n' + index.slice(index.indexOf(end));
+const homeStyle = /<link rel="stylesheet" href="assets\/css\/main\.css(?:\?[^"]*)?">/g;
+if ([...home.matchAll(homeStyle)].length !== 1) throw new Error('Expected exactly one main stylesheet in index.html.');
+outputs.set('index.html', home.replace(homeStyle, `<link rel="stylesheet" href="${e(stylesheetHref('index.html', 'assets/css/main.css'))}">`));
 
 const sitemap = [`<?xml version="1.0" encoding="UTF-8"?>`, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">', `  <url><loc>${e(config.siteUrl)}</loc><lastmod>${config.homeUpdated}</lastmod></url>`];
 for (const article of config.articles) for (const lang of langs) {

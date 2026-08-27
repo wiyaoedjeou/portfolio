@@ -1,4 +1,5 @@
 import { readFile, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -46,6 +47,11 @@ for (const file of htmlFiles) {
     const pathname = decodeURIComponent(beforeHash.split('?')[0]);
     const target = pathname ? path.resolve(path.dirname(absoluteFile), pathname) : absoluteFile;
     if (!(await exists(target))) { errors.push(`${file}: missing local reference ${reference}.`); continue; }
+    if (pathname.endsWith('.css')) {
+      const expectedVersion = createHash('sha256').update(await readFile(target)).digest('hex').slice(0, 12);
+      const version = new URLSearchParams(beforeHash.split('?')[1] || '').get('v');
+      if (version !== expectedVersion) errors.push(`${file}: missing or outdated stylesheet version for ${pathname}.`);
+    }
     if (hash && target.endsWith('.html')) {
       const targetHtml = await getHtml(target);
       const targetIds = [...targetHtml.matchAll(/\sid=["']([^"']+)["']/g)].map(item => item[1]);
@@ -81,6 +87,12 @@ for (const article of config.articles) for (const lang of ['en', 'fr']) {
   const title = markdown.split('\n')[0].slice(2);
   if (!schema || schema['@type'] !== 'BlogPosting' || schema.inLanguage !== lang || schema.headline !== title || schema.mainEntityOfPage !== canonical) errors.push(`${file}: structured data does not match its content.`);
   if (schema?.datePublished !== (article.published?.[lang] || undefined) || schema?.dateModified !== article.updated) errors.push(`${file}: publication/modification dates do not match editorial metadata.`);
+  const published = article.published?.[lang];
+  if (!published) errors.push(`${file}: set the actual first-publication date before publishing.`);
+  else {
+    if (!html.includes(`<meta property="article:published_time" content="${published}">`)) errors.push(`${file}: missing first-publication metadata.`);
+    if (!html.includes(`<p class="article-meta">${lang === 'fr' ? 'Publié le' : 'Published'} <time datetime="${published}">`)) errors.push(`${file}: missing visible first-publication date.`);
+  }
   if (!html.includes(`<meta property="og:title" content="${escapeHtml(title)}">`) || !html.includes(`<meta name="description" content="${escapeHtml(article.description[lang])}">`)) errors.push(`${file}: metadata differs from the article.`);
   if (/brouillon|draft for review|unpublished draft|Sommaire de relecture|Review contents|\.md(?:["'#?])/i.test(html)) errors.push(`${file}: review-only text or a Markdown link leaked into the page.`);
   if (/<script(?![^>]*type="application\/ld\+json")/i.test(html)) errors.push(`${file}: an article unexpectedly depends on JavaScript.`);

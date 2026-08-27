@@ -23,7 +23,7 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Illustration abstraite de topographie et de pression de contact en tribologie">
-
+  <meta property="article:published_time" content="2026-08-27">
   <meta property="article:modified_time" content="2026-08-27">
   <meta property="article:author" content="Wiyao EDJEOU">
   <meta name="twitter:card" content="summary_large_image">
@@ -38,6 +38,7 @@
   "description": "Une introduction au contact rugueux par BEM : pression, séparation, accélération FFT et limites des formulations élastiques et élastoplastiques.",
   "inLanguage": "fr",
   "dateModified": "2026-08-27",
+  "datePublished": "2026-08-27",
   "image": "https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg",
   "author": {
     "@type": "Person",
@@ -49,7 +50,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/article.css">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=b8c8d3fe4df6">
 </head>
 <body>
   <a class="skip-link" href="#article-content">Aller à l’article</a>
@@ -64,7 +65,7 @@
         <p class="eyebrow">Méthodes · Mécanique du contact</p>
         <h1>Du relief à la pression : comprendre le calcul du contact rugueux par BEM</h1>
         <p class="byline">Par <strong>Wiyao EDJEOU, PhD</strong></p>
-        <p class="article-meta">Mis à jour le <time datetime="2026-08-27">27 août 2026</time> · 7 min de lecture</p>
+        <p class="article-meta">Publié le <time datetime="2026-08-27">27 août 2026</time> · 7 min de lecture</p>
         <details class="article-toc"><summary>Sommaire</summary><ol><li><a href="#le-probleme-trouver-ou-les-surfaces-se-touchent">Le problème : trouver où les surfaces se touchent</a></li><li><a href="#pourquoi-une-formulation-sur-la-surface-peut-etre-utile">Pourquoi une formulation sur la surface peut être utile</a></li><li><a href="#quatre-conditions-physiques-a-respecter">Quatre conditions physiques à respecter</a></li><li><a href="#ce-que-la-fft-accelere-reellement">Ce que la FFT accélère réellement</a></li><li><a href="#la-qualite-du-calcul-commence-dans-la-topographie">La qualité du calcul commence dans la topographie</a></li><li><a href="#ce-que-la-pression-permet-de-comprendre-et-ce-qu-elle-ne-suffit-pas-a-predire">Ce que la pression permet de comprendre, et ce qu’elle ne suffit pas à prédire</a></li><li><a href="#avant-d-interpreter-une-carte-de-pression">Avant d’interpréter une carte de pression</a></li><li><a href="#une-methode-au-service-d-une-question-physique">Une méthode au service d’une question physique</a></li><li><a href="#pour-approfondir">Pour approfondir</a></li><li><a href="#references">Références</a></li></ol></details>
         <div class="article-body">
 <p>Une carte de surface montre des sommets et des vallées. Elle ne dit pas encore quels sommets porteront la charge, quelle pression ils subiront ni comment le matériau se déformera. C’est le rôle du modèle de contact. La méthode des éléments de frontière, ou BEM pour <em>Boundary Element Method</em>, offre une façon de relier cette géométrie aux sollicitations mécaniques, à condition de respecter les hypothèses de la formulation choisie.</p>
