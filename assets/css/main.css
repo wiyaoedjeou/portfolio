@@ -9,6 +9,7 @@
   --muted: #526477;
   --white: #ffffff;
   --accent: #c9a84c;
+  --theme-transition: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -493,6 +494,9 @@ section { padding: 6rem 0; }
 
 /* ─── PUBLICATIONS ─── */
 .pub-section { background: var(--navy); }
+#publications {
+  background: linear-gradient(to bottom, var(--cream) 0, var(--navy) var(--theme-transition));
+}
 .pub-section .section-label { color: var(--teal-light); }
 .pub-section .section-label::before { background: var(--teal-light); }
 .pub-section .section-title { color: var(--white); }
@@ -628,7 +632,9 @@ section { padding: 6rem 0; }
 }
 
 /* ─── FREELANCE ─── */
-.freelance-section { background: var(--white); }
+.freelance-section {
+  background: linear-gradient(to bottom, var(--navy) 0, var(--white) var(--theme-transition));
+}
 .freelance-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -757,8 +763,30 @@ section { padding: 6rem 0; }
 
 /* ─── CONTACT ─── */
 .contact-section {
-  background: var(--navy);
+  background: linear-gradient(to bottom, var(--white) 0, var(--navy) var(--theme-transition));
   padding: 6rem 0;
+}
+
+/* Soft theme changes preserve orientation while scrolling. */
+#publications,
+.freelance-section,
+.contact-section {
+  position: relative;
+}
+#publications::before,
+.freelance-section::before,
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--theme-transition) - 1px);
+  left: 50%;
+  width: clamp(2.5rem, 5vw, 4rem);
+  height: 2px;
+  border-radius: 2px;
+  background: var(--teal);
+  opacity: 0.7;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 .contact-grid {
   display: grid;
