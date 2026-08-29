@@ -84,7 +84,7 @@ The contact tests use a simulated EmailJS service: they never send email. They c
 ## Editing bilingual articles
 
 1. Edit the approved English and French Markdown files in `content/articles/en/` and `content/articles/fr/`.
-2. Update the descriptions, categories and modification date in `content/articles/index.json`.
+2. Update the descriptions, categories and modification date in `content/articles/index.json`; keep `featured: true` on exactly one article.
 3. Regenerate the static website with `node scripts/build-articles.mjs` after editing articles or either CSS file.
 4. Run the validation commands above, review locally, and publish only after approval.
 

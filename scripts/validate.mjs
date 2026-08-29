@@ -7,6 +7,8 @@ import { escapeHtml } from './article-renderer.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const config = JSON.parse(await readFile(path.join(root, 'content/articles/index.json'), 'utf8'));
+const featuredArticles = config.articles.filter(article => article.featured === true);
+if (featuredArticles.length !== 1) throw new Error('Exactly one article must be featured on the home page.');
 const htmlFiles = ['index.html', ...config.articles.flatMap(article => [article.path.en, article.path.fr])];
 const errors = [];
 const cache = new Map();
@@ -100,6 +102,7 @@ for (const article of config.articles) for (const lang of ['en', 'fr']) {
 
 const home = await getHtml(path.join(root, 'index.html'));
 if ((home.match(/data-article-id=/g) || []).length !== config.articles.length) errors.push('The home page must contain one card per article, not per language.');
+if ((home.match(/blog-card--featured/g) || []).length !== 1 || !home.includes(`class="blog-card blog-card--featured fade-in" data-article-id="${featuredArticles[0].id}"`)) errors.push('Home: the configured featured article must be unique and visually identified.');
 for (const article of config.articles) for (const lang of ['en', 'fr']) {
   if (!home.includes(`href="${article.path[lang]}" lang="${lang}" hreflang="${lang}"`)) errors.push(`Home: missing crawlable ${lang} link for ${article.id}.`);
 }

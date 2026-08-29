@@ -16,6 +16,8 @@ const rendered = new Map();
 const outputs = new Map();
 
 if (config.siteUrl !== 'https://wiyaoedjeou.github.io/portfolio/') throw new Error('Unexpected production origin.');
+const featuredArticles = config.articles.filter(article => article.featured === true);
+if (featuredArticles.length !== 1) throw new Error('Exactly one article must be featured on the home page.');
 const absolute = route => new URL(route, config.siteUrl).href;
 const relative = (from, to) => path.posix.relative(path.posix.dirname(from), to);
 const styleVersions = new Map(await Promise.all(['assets/css/main.css', 'assets/css/article.css'].map(async file => [
@@ -157,8 +159,9 @@ function cards() {
   return `${introduction}\n<div class="blog-grid">\n${config.articles.map(article => {
     const en = rendered.get(`${article.id}:en`);
     const fr = rendered.get(`${article.id}:fr`);
-    return `<article class="blog-card fade-in" data-article-id="${e(article.id)}">
-  <div class="blog-meta"><span data-i18n-text data-en="${e(article.category.en)}" data-fr="${e(article.category.fr)}">${e(article.category.en)}</span><span data-i18n-text data-en="${en.minutes} min read" data-fr="${fr.minutes} min de lecture">${en.minutes} min read</span></div>
+    const featured = article.featured === true;
+    return `<article class="blog-card${featured ? ' blog-card--featured' : ''} fade-in" data-article-id="${e(article.id)}">
+${featured ? '  <div class="blog-featured-label" data-i18n-text data-en="Featured article" data-fr="Article à la une">Featured article</div>\n' : ''}  <div class="blog-meta"><span data-i18n-text data-en="${e(article.category.en)}" data-fr="${e(article.category.fr)}">${e(article.category.en)}</span><span data-i18n-text data-en="${en.minutes} min read" data-fr="${fr.minutes} min de lecture">${en.minutes} min read</span></div>
   <h3><a href="${e(article.path.en)}" data-href-en="${e(article.path.en)}" data-href-fr="${e(article.path.fr)}" data-i18n-text data-en="${e(en.title)}" data-fr="${e(fr.title)}">${e(en.title)}</a></h3>
   <p data-i18n-text data-en="${e(article.description.en)}" data-fr="${e(article.description.fr)}">${e(article.description.en)}</p>
   <div class="blog-actions"><a class="blog-link" href="${e(article.path.en)}" data-href-en="${e(article.path.en)}" data-href-fr="${e(article.path.fr)}" data-i18n-text data-en="Read article ↗" data-fr="Lire l’article ↗">Read article ↗</a><span class="blog-languages"><a href="${e(article.path.fr)}" lang="fr" hreflang="fr">Français</a><a href="${e(article.path.en)}" lang="en" hreflang="en">English</a></span></div>

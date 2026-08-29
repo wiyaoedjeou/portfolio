@@ -1,9 +1,10 @@
 {
   "siteUrl": "https://wiyaoedjeou.github.io/portfolio/",
-  "homeUpdated": "2026-08-27",
+  "homeUpdated": "2026-08-29",
   "articles": [
     {
       "id": "water-spray",
+      "featured": true,
       "source": {
         "fr": "fr/01-eclaboussures-route-mouillee.md",
         "en": "en/01-road-wetness-from-water-spray.md"

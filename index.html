@@ -94,7 +94,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 
   <!-- ══ Styles ══ -->
-  <link rel="stylesheet" href="assets/css/main.css?v=79cfdbea494e">
+  <link rel="stylesheet" href="assets/css/main.css?v=af529e81bc62">
 
   <!-- ══ EmailJS (contact form) ══ -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
@@ -155,12 +155,12 @@
         <div class="stat-label" data-en="Years R&amp;D" data-fr="Ans R&amp;D">Years R&amp;D</div>
       </div>
       <div>
-        <div class="stat-num">12</div>
-        <div class="stat-label" data-en="Publications" data-fr="Publications">Publications</div>
+        <div class="stat-num">6</div>
+        <div class="stat-label" data-en="Selected works" data-fr="Travaux sélectionnés">Selected works</div>
       </div>
       <div>
-        <div class="stat-num">64</div>
-        <div class="stat-label" data-en="Citations" data-fr="Citations">Citations</div>
+        <div class="stat-num">FR<span>/</span>EN</div>
+        <div class="stat-label" data-en="Bilingual delivery" data-fr="Livrables bilingues">Bilingual delivery</div>
       </div>
     </div>
   </div>
@@ -170,31 +170,20 @@
       <div class="dot" aria-hidden="true"></div>
       <span data-en="Available for freelance missions" data-fr="Disponible pour missions freelance">Available for freelance missions</span>
     </div>
-    <div class="hero-services">
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">⚙️</div>
-        <h3 data-en="Tribology Consulting"   data-fr="Conseil en Tribologie">Tribology Consulting</h3>
-        <p  data-en="Wear, friction &amp; contact mechanics analysis for automotive, rail and industrial applications."
-            data-fr="Analyse d'usure, frottement et mécanique du contact pour applications automobile, ferroviaire et industrielle.">
-          Wear, friction &amp; contact mechanics analysis for automotive, rail and industrial applications.
-        </p>
+    <div class="hero-expertise-card">
+      <p class="hero-expertise-label" data-en="One integrated R&amp;D approach" data-fr="Une approche R&amp;D intégrée">One integrated R&amp;D approach</p>
+      <h2 id="expertise-heading" data-en="Measure. Model. Predict." data-fr="Mesurer. Modéliser. Prédire.">Measure. Model. Predict.</h2>
+      <p class="hero-expertise-intro"
+         data-en="Connecting surface measurements, contact mechanics and simulation to make engineering decisions more reliable."
+         data-fr="Relier mesures de surface, mécanique du contact et simulation pour fiabiliser les décisions d’ingénierie.">
+        Connecting surface measurements, contact mechanics and simulation to make engineering decisions more reliable.
+      </p>
+      <div class="expertise-flow" role="list" aria-labelledby="expertise-heading">
+        <div class="expertise-step" role="listitem"><span>01</span><strong data-en="Experiment" data-fr="Expérimenter">Experiment</strong></div>
+        <div class="expertise-step" role="listitem"><span>02</span><strong data-en="Model" data-fr="Modéliser">Model</strong></div>
+        <div class="expertise-step" role="listitem"><span>03</span><strong data-en="Predict" data-fr="Prédire">Predict</strong></div>
       </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">💻</div>
-        <h3 data-en="Numerical Simulation" data-fr="Simulation Numérique">Numerical Simulation</h3>
-        <p  data-en="FEA, multi-scale modelling, digital twins. Abaqus, Ansys, Comsol, Python, Matlab."
-            data-fr="EF, modélisation multi-échelle, jumeaux numériques. Abaqus, Ansys, Comsol, Python, Matlab.">
-          FEA, multi-scale modelling, digital twins. Abaqus, Ansys, Comsol, Python, Matlab.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🔬</div>
-        <h3 data-en="Experimental Tribology" data-fr="Tribologie Expérimentale">Experimental Tribology</h3>
-        <p  data-en="Surface roughness measurement, friction &amp; wear testing, skid resistance assessment."
-            data-fr="Mesure de rugosité, essais de frottement et d'usure, évaluation de l'adhérence.">
-          Surface roughness measurement, friction &amp; wear testing, skid resistance assessment.
-        </p>
-      </div>
+      <p class="hero-toolkit">Abaqus · Python · Matlab · MountainsMap · Alicona</p>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <div class="scroll-line"></div>
@@ -228,18 +217,14 @@
         </p>
       </div>
       <div class="skills-grid fade-in" aria-label="Technical skills">
-        <div class="skill-pill">Tribology &amp; Wear</div>
-        <div class="skill-pill">Contact Mechanics</div>
-        <div class="skill-pill">Rolling Resistance</div>
-        <div class="skill-pill">Surface Engineering</div>
-        <div class="skill-pill">FEA (Abaqus/Ansys)</div>
-        <div class="skill-pill">Multi-scale Modelling</div>
-        <div class="skill-pill">Python / Matlab / C++</div>
-        <div class="skill-pill">Digital Twin</div>
-        <div class="skill-pill">Skid Resistance</div>
-        <div class="skill-pill">Rail Fatigue</div>
-        <div class="skill-pill">MountainsMap / Alicona</div>
-        <div class="skill-pill">Experimental Validation</div>
+        <div class="skill-pill" data-en="Tribology &amp; Wear" data-fr="Tribologie &amp; Usure">Tribology &amp; Wear</div>
+        <div class="skill-pill" data-en="Contact Mechanics" data-fr="Mécanique du contact">Contact Mechanics</div>
+        <div class="skill-pill" data-en="FEA &amp; Numerical Modelling" data-fr="EF &amp; Modélisation numérique">FEA &amp; Numerical Modelling</div>
+        <div class="skill-pill" data-en="Multiscale Surface Analysis" data-fr="Analyse multiéchelle des surfaces">Multiscale Surface Analysis</div>
+        <div class="skill-pill" data-en="Rolling Resistance" data-fr="Résistance au roulement">Rolling Resistance</div>
+        <div class="skill-pill" data-en="Experimental Validation" data-fr="Validation expérimentale">Experimental Validation</div>
+        <div class="skill-pill" data-en="Python / Matlab / C++" data-fr="Python / Matlab / C++">Python / Matlab / C++</div>
+        <div class="skill-pill" data-en="Digital Twins" data-fr="Jumeaux numériques">Digital Twins</div>
       </div>
     </div>
   </div>
@@ -348,6 +333,11 @@
         </div>
       </div>
 
+    </div>
+
+    <details class="experience-archive">
+      <summary><span data-en="Earlier experience" data-fr="Expériences antérieures">Earlier experience</span><span class="experience-archive-count" data-en="3 roles · 2016–2018" data-fr="3 postes · 2016–2018">3 roles · 2016–2018</span></summary>
+      <div class="timeline timeline--archive" role="list">
       <div class="timeline-item fade-in" role="listitem">
         <div class="timeline-date" data-en="Jan 2018 → Jul 2018" data-fr="Jan. 2018 → Juil. 2018">Jan 2018 → Jul 2018</div>
         <div class="timeline-dot" aria-hidden="true"></div>
@@ -422,6 +412,7 @@
       </div>
 
     </div>
+    </details>
   </div>
 </section>
 
@@ -520,7 +511,8 @@
     <!-- articles:generated:start -->
 <p class="blog-intro" data-i18n-text data-en="Five articles in English and French: two method introductions and three research case studies." data-fr="Cinq articles en français et en anglais : deux introductions méthodologiques et trois cas d’étude.">Five articles in English and French: two method introductions and three research case studies.</p>
 <div class="blog-grid">
-<article class="blog-card fade-in" data-article-id="water-spray">
+<article class="blog-card blog-card--featured fade-in" data-article-id="water-spray">
+  <div class="blog-featured-label" data-i18n-text data-en="Featured article" data-fr="Article à la une">Featured article</div>
   <div class="blog-meta"><span data-i18n-text data-en="On-board sensing · Wet pavement" data-fr="Mesure embarquée · Chaussée mouillée">On-board sensing · Wet pavement</span><span data-i18n-text data-en="8 min read" data-fr="9 min de lecture">8 min read</span></div>
   <h3><a href="blog/road-wetness-water-spray.html" data-href-en="blog/road-wetness-water-spray.html" data-href-fr="fr/blog/eclaboussures-route-mouillee.html" data-i18n-text data-en="What Water Spray Can Tell Us About a Wet Road" data-fr="Ce que les éclaboussures peuvent nous apprendre sur une route mouillée">What Water Spray Can Tell Us About a Wet Road</a></h3>
   <p data-i18n-text data-en="How vibrations caused by water spray can estimate road wetness: sensor placement, signal filtering, detection thresholds and experimental limitations." data-fr="Comment les vibrations dues aux éclaboussures permettent d’estimer l’eau sur la chaussée : capteurs, filtrage, seuils et limites expérimentales.">How vibrations caused by water spray can estimate road wetness: sensor placement, signal filtering, detection thresholds and experimental limitations.</p>
