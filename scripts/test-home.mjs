@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../assets/css/main.css', import.meta.url), 'utf8');
+const articleConfig = JSON.parse(await readFile(new URL('../content/articles/index.json', import.meta.url), 'utf8'));
 
 test('the home page presents a concise, bilingual expertise hierarchy', () => {
   assert.equal((html.match(/class="hero-expertise-card"/g) || []).length, 1);
@@ -31,8 +32,10 @@ test('all seven roles remain accessible while only four lead the experience sect
 });
 
 test('the newest research story is the only featured article', () => {
+  const featured = articleConfig.articles.filter(article => article.featured === true);
+  assert.equal(featured.length, 1);
   assert.equal((html.match(/blog-card--featured/g) || []).length, 1);
-  assert.match(html, /class="blog-card blog-card--featured fade-in" data-article-id="water-spray"/);
+  assert.match(html, new RegExp(`class="blog-card blog-card--featured fade-in" data-article-id="${featured[0].id}"`));
   assert.match(html, /data-en="Featured article" data-fr="Article à la une"/);
   assert.doesNotMatch(css, /\.blog-card:last-child:nth-child\(odd\)/);
 });

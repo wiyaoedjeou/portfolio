@@ -155,7 +155,12 @@ ${r.html}
 for (const article of config.articles) for (const lang of langs) outputs.set(article.path[lang], page(article, lang));
 
 function cards() {
-  const introduction = '<p class="blog-intro" data-i18n-text data-en="Five articles in English and French: two method introductions and three research case studies." data-fr="Cinq articles en français et en anglais : deux introductions méthodologiques et trois cas d’étude.">Five articles in English and French: two method introductions and three research case studies.</p>';
+  const count = config.articles.length;
+  const enCount = new Intl.NumberFormat('en-GB').format(count);
+  const frCount = new Intl.NumberFormat('fr-FR').format(count);
+  const enText = `${enCount} technical articles available in English and French, connecting methods, experiments and engineering applications.`;
+  const frText = `${frCount} articles techniques disponibles en français et en anglais, reliant méthodes, expériences et applications d’ingénierie.`;
+  const introduction = `<p class="blog-intro" data-i18n-text data-en="${e(enText)}" data-fr="${e(frText)}">${e(enText)}</p>`;
   return `${introduction}\n<div class="blog-grid">\n${config.articles.map(article => {
     const en = rendered.get(`${article.id}:en`);
     const fr = rendered.get(`${article.id}:fr`);

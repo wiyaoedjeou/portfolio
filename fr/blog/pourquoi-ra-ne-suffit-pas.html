@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pourquoi Ra ne suffit pas pour caractériser une surface en contact — Wiyao EDJEOU</title>
+  <meta name="description" content="Pourquoi une rugosité moyenne ne suffit pas à prédire le contact ou le frottement, et comment construire une caractérisation multiéchelle pertinente.">
+  <meta name="author" content="Wiyao EDJEOU">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0f1417">
+  <link rel="canonical" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/pourquoi-ra-ne-suffit-pas.html">
+  <link rel="alternate" hreflang="en" href="https://wiyaoedjeou.github.io/portfolio/blog/why-ra-is-not-enough.html">
+  <link rel="alternate" hreflang="fr" href="https://wiyaoedjeou.github.io/portfolio/fr/blog/pourquoi-ra-ne-suffit-pas.html">
+  <link rel="alternate" hreflang="x-default" href="https://wiyaoedjeou.github.io/portfolio/blog/why-ra-is-not-enough.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wiyao EDJEOU — Portfolio">
+  <meta property="og:url" content="https://wiyaoedjeou.github.io/portfolio/fr/blog/pourquoi-ra-ne-suffit-pas.html">
+  <meta property="og:title" content="Pourquoi Ra ne suffit pas pour caractériser une surface en contact">
+  <meta property="og:description" content="Pourquoi une rugosité moyenne ne suffit pas à prédire le contact ou le frottement, et comment construire une caractérisation multiéchelle pertinente.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Illustration abstraite de topographie et de pression de contact en tribologie">
+  <meta property="article:published_time" content="2026-09-14">
+  <meta property="article:modified_time" content="2026-09-14">
+  <meta property="article:author" content="Wiyao EDJEOU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pourquoi Ra ne suffit pas pour caractériser une surface en contact">
+  <meta name="twitter:description" content="Pourquoi une rugosité moyenne ne suffit pas à prédire le contact ou le frottement, et comment construire une caractérisation multiéchelle pertinente.">
+  <meta name="twitter:image" content="https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://wiyaoedjeou.github.io/portfolio/fr/blog/pourquoi-ra-ne-suffit-pas.html#article",
+  "headline": "Pourquoi Ra ne suffit pas pour caractériser une surface en contact",
+  "description": "Pourquoi une rugosité moyenne ne suffit pas à prédire le contact ou le frottement, et comment construire une caractérisation multiéchelle pertinente.",
+  "inLanguage": "fr",
+  "dateModified": "2026-09-14",
+  "datePublished": "2026-09-14",
+  "image": "https://wiyaoedjeou.github.io/portfolio/assets/images/og-tribology-contact.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Wiyao EDJEOU",
+    "url": "https://wiyaoedjeou.github.io/portfolio/"
+  },
+  "mainEntityOfPage": "https://wiyaoedjeou.github.io/portfolio/fr/blog/pourquoi-ra-ne-suffit-pas.html"
+}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/article.css?v=b8c8d3fe4df6">
+</head>
+<body>
+  <a class="skip-link" href="#article-content">Aller à l’article</a>
+  <div class="veil">
+    <header class="top">
+      <a class="back" href="../../index.html?lang=fr#blog">← W. EDJEOU — Portfolio et articles</a>
+      <nav class="article-languages" aria-label="Langue de l’article"><a href="../../blog/why-ra-is-not-enough.html" lang="en" hreflang="en">English</a>
+<a href="pourquoi-ra-ne-suffit-pas.html" lang="fr" hreflang="fr" aria-current="page">Français</a></nav>
+    </header>
+    <main id="article-content">
+      <article>
+        <p class="eyebrow">Métrologie · Topographie de surface</p>
+        <h1>Pourquoi Ra ne suffit pas pour caractériser une surface en contact</h1>
+        <p class="byline">Par <strong>Wiyao EDJEOU, PhD</strong></p>
+        <p class="article-meta">Publié le <time datetime="2026-09-14">14 septembre 2026</time> · 9 min de lecture</p>
+        <details class="article-toc"><summary>Sommaire</summary><ol><li><a href="#ce-que-ra-mesure-reellement">Ce que Ra mesure réellement</a></li><li><a href="#deux-surfaces-peuvent-avoir-le-meme-ra-sans-avoir-la-meme-geometrie">Deux surfaces peuvent avoir le même Ra sans avoir la même géométrie</a></li><li><a href="#une-moyenne-ne-conserve-pas-l-information-spatiale">Une moyenne ne conserve pas l’information spatiale</a></li><li><a href="#ra-rq-sa-et-sq-des-proches-qui-ne-disent-pas-exactement-la-meme-chose">Ra, Rq, Sa et Sq : des proches qui ne disent pas exactement la même chose</a></li><li><a href="#la-valeur-depend-aussi-de-la-mesure-et-du-filtrage">La valeur dépend aussi de la mesure et du filtrage</a></li><li><a href="#ce-que-l-analyse-multiechelle-ajoute">Ce que l’analyse multiéchelle ajoute</a></li><li><a href="#le-cas-du-polissage-des-granulats">Le cas du polissage des granulats</a></li><li><a href="#le-cas-des-enrobes-une-meme-metrique-deux-phases-physiques">Le cas des enrobés : une même métrique, deux phases physiques</a></li><li><a href="#choisir-les-parametres-a-partir-de-la-fonction">Choisir les paramètres à partir de la fonction</a></li><li><a href="#ce-qu-il-faut-retenir">Ce qu’il faut retenir</a></li><li><a href="#pour-approfondir">Pour approfondir</a></li><li><a href="#references">Références</a></li></ol></details>
+        <div class="article-body">
+<p><code>Ra</code> est probablement le paramètre de rugosité le plus connu. Il tient en un nombre, se compare facilement et figure sur de nombreux plans, rapports de mesure et fiches techniques. Cette simplicité explique son succès. Elle crée aussi un risque : croire qu’une valeur moyenne suffit à décrire la manière dont deux surfaces vont se toucher, s’user ou produire du frottement.</p>
+<p>La question utile n’est donc pas de savoir s’il faut abandonner <code>Ra</code>. Il faut plutôt comprendre ce qu’il mesure, ce qu’il efface et quels compléments deviennent nécessaires lorsque la fonction de la surface dépend de l’organisation de ses aspérités.</p>
+<h2 id="ce-que-ra-mesure-reellement">Ce que Ra mesure réellement</h2>
+<p><code>Ra</code> est un paramètre calculé sur un profil. Après avoir défini la ligne moyenne et les conditions de filtrage, il représente la moyenne arithmétique des écarts absolus du profil par rapport à cette ligne. Les reliefs situés au-dessus et au-dessous contribuent ainsi positivement à la valeur finale. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-2" aria-label="Référence 2">2</a>]</span></p>
+<p>Cette définition répond à une question précise : quelle est l’amplitude moyenne des irrégularités le long du profil analysé ? Elle ne décrit pas directement leur ordre, leur espacement, leur pente ou leur forme.</p>
+<p>Cette distinction permet d’éviter un premier malentendu. <code>Ra</code> n’est pas « la rugosité complète » d’une pièce. C’est un indicateur d’amplitude calculé sur une représentation donnée de la surface, après une chaîne de mesure et de traitement donnée.</p>
+<p>Les normes actuelles distinguent par ailleurs les paramètres de profil, notamment <code>Ra</code> et <code>Rq</code>, des paramètres surfaciques tels que <code>Sa</code> et <code>Sq</code>. L’analyse développée dans ma thèse s’appuie principalement sur des cartes tridimensionnelles et sur des paramètres surfaciques. Parler de <code>Ra</code> dans le titre permet donc de partir du paramètre le plus familier, mais le raisonnement concerne plus largement les indicateurs moyens d’amplitude employés seuls. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-2" aria-label="Référence 2">2</a>, <a href="#ref-3" aria-label="Référence 3">3</a>]</span></p>
+<h2 id="deux-surfaces-peuvent-avoir-le-meme-ra-sans-avoir-la-meme-geometrie">Deux surfaces peuvent avoir le même Ra sans avoir la même géométrie</h2>
+<p>Imaginons deux profils possédant la même distribution de hauteurs, mais dans un ordre différent. Le premier alterne rapidement petits sommets et petites vallées. Le second regroupe ces mêmes hauteurs en ondulations plus espacées. Leur <code>Ra</code> peut être identique puisque les écarts absolus à la ligne moyenne n’ont pas changé.</p>
+<p>Pourtant, ces profils n’imposent pas la même succession de sollicitations à un matériau qui les parcourt. Leurs pentes, leurs longueurs d’onde et la courbure de leurs sommets peuvent être très différentes.</p>
+<p>Une autre ambiguïté apparaît lorsque des sommets étroits et des plateaux larges produisent une amplitude moyenne comparable. En contact, la forme des zones les plus hautes influence la façon dont la charge est initialement portée. Lorsque le matériau est déformable, la réponse dépend aussi de sa loi de comportement, de la pression nominale et des échelles effectivement présentes.</p>
+<p>Le même <code>Ra</code> ne garantit donc ni la même aire réelle de contact, ni la même distribution de pression, ni le même frottement. Inversement, deux valeurs de <code>Ra</code> différentes ne suffisent pas à conclure qu’une surface sera fonctionnellement meilleure que l’autre.</p>
+<h2 id="une-moyenne-ne-conserve-pas-l-information-spatiale">Une moyenne ne conserve pas l’information spatiale</h2>
+<p>Le calcul d’une moyenne transforme un ensemble de points en une seule valeur. C’est utile pour résumer et contrôler, mais l’opération supprime nécessairement de l’information.</p>
+<p>Pour un problème de contact ou de frottement, plusieurs familles de caractéristiques peuvent compter :</p>
+<ul><li>les hauteurs, qui indiquent l’amplitude du relief ;</li><li>les pentes, qui décrivent la rapidité des variations ;</li><li>la courbure des sommets, qui renseigne sur leur caractère aigu ou arrondi ;</li><li>la densité et l’espacement des sommets ;</li><li>le volume de matière situé dans la partie supérieure de la surface ;</li><li>les tailles caractéristiques auxquelles ces propriétés apparaissent.</li></ul>
+<p>Ces informations ne sont pas interchangeables. Une diminution de hauteur peut accompagner un arrondi des sommets, mais ces évolutions ne sont ni mathématiquement identiques ni systématiquement proportionnelles.</p>
+<p>Dans les travaux de ma thèse, plusieurs paramètres ont été examinés conjointement : <code>Sq</code> pour la hauteur quadratique moyenne, <code>Sdq</code> pour les gradients, <code>Ssc</code> pour la courbure moyenne des sommets, <code>Sds</code> pour leur densité et <code>Vmp</code> pour le volume de matière des sommets. Leur lecture combinée aide à relier une variation géométrique à un mécanisme d’usure, sans attribuer toute l’évolution fonctionnelle à un unique nombre. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-4" aria-label="Référence 4">4</a>, <a href="#ref-5" aria-label="Référence 5">5</a>]</span></p>
+<h2 id="ra-rq-sa-et-sq-des-proches-qui-ne-disent-pas-exactement-la-meme-chose">Ra, Rq, Sa et Sq : des proches qui ne disent pas exactement la même chose</h2>
+<p>Les notations sont faciles à confondre. <code>R</code> désigne ici des paramètres calculés sur un profil, tandis que <code>S</code> renvoie à une caractérisation surfacique. La lettre <code>a</code> correspond à une moyenne arithmétique des écarts absolus ; la lettre <code>q</code> à une moyenne quadratique.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Tableau comparatif"><table><thead><tr><th scope="col">Paramètre</th><th scope="col">Domaine</th><th scope="col">Information principale</th><th scope="col">Limite lorsqu’il est utilisé seul</th></tr></thead><tbody><tr><th scope="row"><code>Ra</code></th><td>Profil</td><td>Amplitude arithmétique moyenne</td><td>Perd l’organisation spatiale et distingue peu les valeurs extrêmes</td></tr><tr><th scope="row"><code>Rq</code></th><td>Profil</td><td>Amplitude quadratique moyenne</td><td>Plus sensible aux grands écarts, mais reste un résumé d’amplitude</td></tr><tr><th scope="row"><code>Sa</code></th><td>Surface</td><td>Équivalent surfacique de l’amplitude arithmétique</td><td>Ne décrit pas à lui seul les pentes, les sommets ou les échelles</td></tr><tr><th scope="row"><code>Sq</code></th><td>Surface</td><td>Dispersion quadratique des hauteurs</td><td>Ne suffit pas à identifier le mécanisme fonctionnel</td></tr></tbody></table></div>
+<p>Le passage de <code>Ra</code> à <code>Rq</code> ne résout donc pas tout. <code>Rq</code> donne davantage de poids aux écarts élevés, mais deux profils réordonnés peuvent encore conserver la même valeur. De même, une carte surfacique apporte une information plus riche qu’une ligne, mais <code>Sa</code> ou <code>Sq</code> seuls résument toujours cette carte en un scalaire.</p>
+<h2 id="la-valeur-depend-aussi-de-la-mesure-et-du-filtrage">La valeur dépend aussi de la mesure et du filtrage</h2>
+<p>Une surface ne possède pas une unique rugosité indépendante de la façon dont on l’observe. L’instrument a une résolution latérale et verticale, le champ mesuré possède une étendue, puis des opérations retirent la forme ou séparent différentes composantes de texture.</p>
+<p>Une petite zone mesurée très finement peut révéler des détails qu’une acquisition plus grossière ne voit pas. Elle peut aussi manquer des ondulations plus larges. Le résultat dépend donc du compromis entre résolution et étendue, ainsi que des filtres et longueurs d’évaluation retenus.</p>
+<p>Deux valeurs de <code>Ra</code> ne sont véritablement comparables que si la définition du profil, le filtrage, la longueur d’évaluation, la résolution et les conditions de mesure sont cohérents. Une valeur fournie sans ce contexte est moins informative qu’elle n’en a l’air.</p>
+<p>Ce point devient essentiel pour les surfaces de chaussée, dont la texture couvre une large gamme d’échelles. Mesurer correctement les plus petites aspérités ne signifie pas que l’on décrit toute la structure utile au drainage, au contact du pneumatique ou à l’évolution sous polissage.</p>
+<h2 id="ce-que-l-analyse-multiechelle-ajoute">Ce que l’analyse multiéchelle ajoute</h2>
+<p>L’analyse multiéchelle ne consiste pas à calculer toujours plus de paramètres sur la même carte brute. Elle cherche à déterminer à quelles tailles caractéristiques les transformations sont observées.</p>
+<p>Dans la thèse et les publications associées, une décomposition par ondelettes est utilisée pour reconstruire des composantes de surface à différentes échelles. Les paramètres de hauteur, de pente, de courbure ou de volume peuvent alors être suivis en fonction de l’échelle et de l’état de polissage. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-4" aria-label="Référence 4">4</a>, <a href="#ref-5" aria-label="Référence 5">5</a>]</span></p>
+<p>Cette démarche permet de distinguer deux surfaces qui auraient une valeur globale proche, mais dont les petites aspérités ou les reliefs plus larges n’évoluent pas de la même manière. Elle permet aussi de rechercher les gammes d’échelles où la texture et le frottement présentent des évolutions corrélées.</p>
+<p>Une corrélation ne prouve toutefois pas, à elle seule, un mécanisme causal. Elle indique une gamme informative dans un protocole donné. L’interprétation doit encore considérer le matériau, le contact, la vitesse, la présence d’eau et le type de sollicitation.</p>
+<h2 id="le-cas-du-polissage-des-granulats">Le cas du polissage des granulats</h2>
+<p>Lors du polissage, la surface des granulats peut perdre de la hauteur, voir ses sommets s’arrondir et ses pentes diminuer. Pour des granulats polyminéraux, l’usure différentielle entre constituants peut aussi maintenir ou recréer des reliefs locaux. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-4" aria-label="Référence 4">4</a>]</span></p>
+<p>Dans ce cas, une évolution de <code>Sq</code> renseigne sur la dispersion des hauteurs, tandis que <code>Vmp</code>, <code>Sdq</code> et <code>Ssc</code> apportent des informations complémentaires sur le volume des sommets, les gradients et leur arrondi. Les résultats expérimentaux montrent que plusieurs de ces paramètres évoluent avec le frottement, particulièrement dans certaines gammes d’échelles mesurées. <span class="citation">[<a href="#ref-4" aria-label="Référence 4">4</a>]</span></p>
+<p>Réduire cette lecture à une valeur moyenne globale ferait perdre deux éléments importants : la nature de la transformation géométrique et l’échelle à laquelle elle intervient.</p>
+<h2 id="le-cas-des-enrobes-une-meme-metrique-deux-phases-physiques">Le cas des enrobés : une même métrique, deux phases physiques</h2>
+<p>Les enrobés bitumineux illustrent une autre limite des interprétations automatiques. Au début du polissage, le décapage du film de liant peut mettre progressivement les granulats à nu et augmenter l’adhérence. Plus tard, l’usure et le polissage des granulats tendent à la réduire. <span class="citation">[<a href="#ref-1" aria-label="Référence 1">1</a>, <a href="#ref-5" aria-label="Référence 5">5</a>]</span></p>
+<p>Une variation d’un paramètre de texture ne porte donc pas toujours la même signification selon la phase de vie de la surface. Il faut savoir quel constituant évolue et quel mécanisme domine.</p>
+<p>C’est pourquoi la caractérisation géométrique doit être reliée à une mesure fonctionnelle et à l’observation du matériau. <code>Ra</code>, <code>Sq</code> ou tout autre paramètre ne devient pas un modèle physique simplement parce qu’il est corrélé à un coefficient de frottement.</p>
+<h2 id="choisir-les-parametres-a-partir-de-la-fonction">Choisir les paramètres à partir de la fonction</h2>
+<p>Il n’existe pas de liste universelle de paramètres suffisante pour tous les contacts. Le bon ensemble dépend de la question posée.</p>
+<p>Pour suivre un procédé industriel stable, <code>Ra</code> peut être un excellent indicateur de contrôle si son lien avec les défauts pertinents a été validé. Pour étudier un joint, un revêtement, un contact lubrifié, une surface polie ou une chaussée mouillée, d’autres informations peuvent devenir déterminantes.</p>
+<p>Une démarche robuste consiste à :</p>
+<ol><li>définir la fonction étudiée et la grandeur à expliquer ;</li><li>choisir une résolution et une étendue compatibles avec les échelles physiques attendues ;</li><li>documenter le prétraitement, les filtres et les longueurs d’évaluation ;</li><li>associer aux hauteurs des paramètres de pente, de forme, de densité ou de volume lorsque le mécanisme l’exige ;</li><li>examiner leur évolution à plusieurs échelles plutôt que seulement leur valeur globale ;</li><li>confronter la géométrie à une mesure fonctionnelle et à un modèle physique adapté.</li></ol>
+<p>Cette démarche ne remplace pas <code>Ra</code> par un nouveau chiffre magique. Elle transforme une valeur de rugosité en une caractérisation construite pour une décision précise.</p>
+<h2 id="ce-qu-il-faut-retenir">Ce qu’il faut retenir</h2>
+<p><code>Ra</code> reste utile parce qu’il est simple, reproductible lorsque le protocole est maîtrisé et efficace pour de nombreuses comparaisons de production. Il devient insuffisant lorsqu’on lui demande de prédire, à lui seul, une fonction qui dépend des pentes, des sommets, de leur organisation et des échelles de texture.</p>
+<p>La bonne question n’est donc pas « quelle surface a le plus grand <code>Ra</code> ? », mais « quelles caractéristiques géométriques gouvernent le phénomène étudié, à quelles échelles et dans quelles conditions ? ».</p>
+<p>C’est à ce passage, d’un nombre moyen à une description physique de la topographie, que l’analyse multiéchelle apporte sa valeur.</p>
+<h2 id="pour-approfondir">Pour approfondir</h2>
+<ul><li><a href="texture-multiechelle-adherence.html">Texture des chaussées : pourquoi l’échelle change notre lecture de l’adhérence</a></li><li><a href="calcul-contact-rugueux-bem.html">De la topographie à la pression : comprendre le contact rugueux par BEM</a></li><li><a href="adherence-chaussee-neuve.html">Pourquoi une chaussée neuve peut-elle gagner en adhérence avant d’en perdre ?</a></li></ul>
+<h2 id="references">Références</h2>
+<ol class="reference-list"><li id="ref-1">Edjeou, W. (2021). <em>Analyse multiéchelle de la texture des chaussées - effet sur l’adhérence des revêtements routiers</em>. Thèse, École centrale de Nantes. <a href="https://theses.hal.science/tel-03651239v1">Manuscrit sur HAL</a>.</li><li id="ref-2">ISO 21920-2:2021. <em>Spécification géométrique des produits - État de surface : méthode du profil - Partie 2 : termes, définitions et paramètres d’état de surface</em>. <a href="https://www.iso.org/standard/72226.html">Fiche ISO</a>.</li><li id="ref-3">ISO 25178-2:2021. <em>Spécification géométrique des produits - État de surface : surfacique - Partie 2 : termes, définitions et paramètres d’état de surface</em>. <a href="https://www.iso.org/standard/74591.html">Fiche ISO</a>.</li><li id="ref-4">Edjeou, W., Cerezo, V., Zahouani, H. et Do, M.-T. (2023). <em>Contribution of multiscale analysis to the understanding of friction evolution of aggregates surfaces</em>. Surface Topography: Metrology and Properties, 11, 014006. <a href="https://doi.org/10.1088/2051-672X/acb95d">Article et DOI</a>.</li><li id="ref-5">Edjeou, W., Cerezo, V., Do, M.-T., Zahouani, H., Ropert, C. et Augris, P. (mise en ligne en 2023). <em>Multiscale analyse of the relation between skid resistance and pavements surfaces texture evolution with polishing</em>. Road Materials and Pavement Design. <a href="https://doi.org/10.1080/14680629.2023.2191723">Article et DOI</a>.</li></ol>
+<p><em>Cet article propose une méthode d’interprétation, pas un critère universel de conformité. Le choix des paramètres et des seuils doit être validé pour le matériau, l’instrument et la fonction étudiés.</em></p>
+        </div>
+        <footer class="article-end">
+          <a href="../../index.html?lang=fr#blog">← Tous les articles</a>
+          <a href="../../blog/why-ra-is-not-enough.html" lang="en" hreflang="en">Read this article in English →</a>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,10 +1,10 @@
 {
   "siteUrl": "https://wiyaoedjeou.github.io/portfolio/",
-  "homeUpdated": "2026-08-29",
+  "homeUpdated": "2026-09-14",
   "articles": [
     {
       "id": "water-spray",
-      "featured": true,
+      "featured": false,
       "source": {
         "fr": "fr/01-eclaboussures-route-mouillee.md",
         "en": "en/01-road-wetness-from-water-spray.md"
@@ -125,6 +125,32 @@
       "published": {
         "fr": "2026-08-27",
         "en": "2026-08-26"
+      },
+      "image": "assets/images/og-tribology-contact.jpg"
+    },
+    {
+      "id": "ra-limitations",
+      "featured": true,
+      "source": {
+        "fr": "fr/06-pourquoi-ra-ne-suffit-pas.md",
+        "en": "en/06-why-ra-is-not-enough.md"
+      },
+      "path": {
+        "fr": "fr/blog/pourquoi-ra-ne-suffit-pas.html",
+        "en": "blog/why-ra-is-not-enough.html"
+      },
+      "category": {
+        "fr": "Métrologie · Topographie de surface",
+        "en": "Metrology · Surface topography"
+      },
+      "description": {
+        "fr": "Pourquoi une rugosité moyenne ne suffit pas à prédire le contact ou le frottement, et comment construire une caractérisation multiéchelle pertinente.",
+        "en": "Why average roughness cannot predict contact or friction on its own, and how to build a meaningful multiscale characterization."
+      },
+      "updated": "2026-09-14",
+      "published": {
+        "fr": "2026-09-14",
+        "en": "2026-09-14"
       },
       "image": "assets/images/og-tribology-contact.jpg"
     }
