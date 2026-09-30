@@ -127,6 +127,7 @@ export function initContact() {
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
       recordSubmission();
+      globalThis.portfolioAnalytics?.event('generate_lead', { method: 'contact_form' });
       form.reset();
       setStatus(form, 'success',
         '✓ Message sent! I will reply within 24 hours.',

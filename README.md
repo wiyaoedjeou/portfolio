@@ -22,7 +22,8 @@ portfolio/
 ├── assets/
 │   ├── css/
 │   │   ├── main.css
-│   │   └── article.css
+│   │   ├── article.css
+│   │   └── consent.css
 │   ├── images/
 │   │   └── og-tribology-contact.jpg
 │   └── js/
@@ -30,7 +31,8 @@ portfolio/
 │       ├── lang.js
 │       ├── animations.js
 │       ├── publications.js
-│       └── contact.js
+│       ├── contact.js
+│       └── analytics.js
 ├── blog/
 │   ├── bem-rough-contact.html
 │   ├── multiscale-roughness-skid-resistance.html
@@ -79,6 +81,14 @@ The form uses the EmailJS browser SDK and is configured in `assets/js/contact.js
 EmailJS public keys are designed for client-side use, but sending restrictions should still be configured in the EmailJS dashboard for the production domain.
 
 The contact tests use a simulated EmailJS service: they never send email. They cover required fields, the honeypot, rate limiting, French/English messages, successful and failed sends, and an unavailable SDK. Confirm actual delivery separately with a real message and the recipient's inbox.
+
+## Audience measurement
+
+Google Analytics 4 uses the public measurement ID `G-15E64V5DTL`. The shared `assets/js/analytics.js` helper is loaded on the landing page and every generated article, but it does not contact Google until the visitor explicitly accepts audience measurement.
+
+The bilingual consent choice is stored locally for six months. Refusing prevents the Google tag from loading; the privacy button lets visitors change their choice later. Advertising storage, Google Signals and advertising-personalisation signals remain disabled. In addition to GA4 enhanced measurement, successful contact-form submissions and clicks on public contact or professional-profile links are recorded only after consent.
+
+When changing the consent code, run `scripts/test-analytics.mjs` with the full test suite. The tests verify the absence of a Google request before consent and after refusal.
 
 
 ## Editing bilingual articles

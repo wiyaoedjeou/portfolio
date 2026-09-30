@@ -1,0 +1,126 @@
+.consent-panel[hidden],
+.consent-settings[hidden] {
+    display: none !important;
+}
+
+.consent-panel {
+    position: fixed;
+    z-index: 2200;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    width: min(760px, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    margin-inline: auto;
+    padding: 1.1rem;
+    overflow-y: auto;
+    color: #f5f7fb;
+    background: #10233b;
+    border: 1px solid rgba(31, 185, 202, 0.52);
+    border-radius: 14px;
+    box-shadow: 0 20px 55px rgba(4, 12, 24, 0.38);
+    font-family: var(--font-sans, Arial, sans-serif);
+}
+
+.consent-panel__content {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+}
+
+.consent-panel__text {
+    flex: 1 1 auto;
+}
+
+.consent-panel__title {
+    margin: 0 0 0.35rem;
+    color: #ffffff;
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
+.consent-panel__description {
+    margin: 0;
+    color: #dce5ef;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.consent-panel__link {
+    display: inline-block;
+    margin-top: 0.4rem;
+    color: #72d8e2;
+    font-size: 0.8rem;
+    text-underline-offset: 0.18em;
+}
+
+.consent-panel__actions {
+    display: grid;
+    flex: 0 0 220px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+}
+
+.consent-button,
+.consent-settings {
+    min-height: 42px;
+    padding: 0.65rem 0.9rem;
+    border-radius: 7px;
+    font: 700 0.77rem/1 var(--font-mono, monospace);
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+
+.consent-button {
+    border: 1px solid #2eb7c4;
+}
+
+.consent-button--decline {
+    color: #eaf4f5;
+    background: transparent;
+}
+
+.consent-button--accept {
+    color: #071923;
+    background: #55d0da;
+}
+
+.consent-button:hover,
+.consent-button:focus-visible,
+.consent-settings:hover,
+.consent-settings:focus-visible {
+    outline: 2px solid #f0bc43;
+    outline-offset: 3px;
+}
+
+.consent-settings {
+    position: fixed;
+    z-index: 1200;
+    bottom: 0.85rem;
+    left: 0.85rem;
+    min-height: 36px;
+    padding: 0.55rem 0.75rem;
+    color: #eaf4f5;
+    background: #10233b;
+    border: 1px solid rgba(31, 185, 202, 0.58);
+    box-shadow: 0 8px 24px rgba(4, 12, 24, 0.2);
+}
+
+@media (max-width: 700px) {
+    .consent-panel {
+        right: 0.65rem;
+        bottom: 0.65rem;
+        left: 0.65rem;
+        width: calc(100% - 1.3rem);
+        padding: 0.95rem;
+    }
+
+    .consent-panel__content {
+        display: block;
+    }
+
+    .consent-panel__actions {
+        margin-top: 0.9rem;
+    }
+}

@@ -20,7 +20,7 @@ const featuredArticles = config.articles.filter(article => article.featured === 
 if (featuredArticles.length !== 1) throw new Error('Exactly one article must be featured on the home page.');
 const absolute = route => new URL(route, config.siteUrl).href;
 const relative = (from, to) => path.posix.relative(path.posix.dirname(from), to);
-const styleVersions = new Map(await Promise.all(['assets/css/main.css', 'assets/css/article.css'].map(async file => [
+const styleVersions = new Map(await Promise.all(['assets/css/main.css', 'assets/css/article.css', 'assets/css/consent.css'].map(async file => [
   file, createHash('sha256').update(await readFile(path.join(root, file))).digest('hex').slice(0, 12),
 ])));
 const stylesheetHref = (from, file) => `${relative(from, file)}?v=${styleVersions.get(file)}`;
@@ -122,6 +122,7 @@ ${image ? `  <meta name="twitter:image" content="${e(image)}">` : ''}
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${e(stylesheetHref(route, 'assets/css/article.css'))}">
+  <link rel="stylesheet" href="${e(stylesheetHref(route, 'assets/css/consent.css'))}">
 </head>
 <body>
   <a class="skip-link" href="#article-content">${lang === 'fr' ? 'Aller à l’article' : 'Skip to article'}</a>
@@ -147,6 +148,7 @@ ${r.html}
       </article>
     </main>
   </div>
+  <script defer src="${e(relative(route, 'assets/js/analytics.js'))}"></script>
 </body>
 </html>
 `;
@@ -182,7 +184,11 @@ if (index.split(start).length !== 2 || index.split(end).length !== 2) throw new 
 const home = index.slice(0, index.indexOf(start) + start.length) + '\n' + cards() + '\n' + index.slice(index.indexOf(end));
 const homeStyle = /<link rel="stylesheet" href="assets\/css\/main\.css(?:\?[^"]*)?">/g;
 if ([...home.matchAll(homeStyle)].length !== 1) throw new Error('Expected exactly one main stylesheet in index.html.');
-outputs.set('index.html', home.replace(homeStyle, `<link rel="stylesheet" href="${e(stylesheetHref('index.html', 'assets/css/main.css'))}">`));
+const homeConsentStyle = /<link rel="stylesheet" href="assets\/css\/consent\.css(?:\?[^"]*)?">/g;
+if ([...home.matchAll(homeConsentStyle)].length !== 1) throw new Error('Expected exactly one consent stylesheet in index.html.');
+outputs.set('index.html', home
+  .replace(homeStyle, `<link rel="stylesheet" href="${e(stylesheetHref('index.html', 'assets/css/main.css'))}">`)
+  .replace(homeConsentStyle, `<link rel="stylesheet" href="${e(stylesheetHref('index.html', 'assets/css/consent.css'))}">`));
 
 const sitemap = [`<?xml version="1.0" encoding="UTF-8"?>`, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">', `  <url><loc>${e(config.siteUrl)}</loc><lastmod>${config.homeUpdated}</lastmod></url>`];
 for (const article of config.articles) for (const lang of langs) {

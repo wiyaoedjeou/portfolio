@@ -12,6 +12,8 @@ if (featuredArticles.length !== 1) throw new Error('Exactly one article must be 
 const htmlFiles = ['index.html', ...config.articles.flatMap(article => [article.path.en, article.path.fr])];
 const errors = [];
 const cache = new Map();
+const analyticsSource = await readFile(path.join(root, 'assets/js/analytics.js'), 'utf8');
+if (!analyticsSource.includes("const MEASUREMENT_ID = 'G-15E64V5DTL';")) errors.push('Analytics: unexpected or missing GA4 measurement ID.');
 const decode = text => text.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 const getHtml = async file => {
   if (!cache.has(file)) cache.set(file, await readFile(file, 'utf8'));
@@ -42,6 +44,9 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)) {
     try { JSON.parse(match[1]); } catch (error) { errors.push(`${file}: invalid JSON-LD (${error.message}).`); }
   }
+  const analyticsScripts = [...html.matchAll(/<script\b([^>]*)\bsrc=["']([^"']*assets\/js\/analytics\.js)["'][^>]*><\/script>/gi)];
+  if (analyticsScripts.length !== 1 || !/\bdefer\b/i.test(analyticsScripts[0]?.[1] || '')) errors.push(`${file}: expected one deferred consent-aware Analytics helper.`);
+  if (/googletagmanager\.com\/gtag\/js/i.test(html)) errors.push(`${file}: Google Analytics must not be loaded directly before consent.`);
   for (const match of html.matchAll(/\s(?:href|src|data-href-en|data-href-fr)=["']([^"']+)["']/g)) {
     const reference = decode(match[1]);
     if (/^(?:https?:|mailto:|tel:|data:)/.test(reference)) continue;
@@ -97,7 +102,12 @@ for (const article of config.articles) for (const lang of ['en', 'fr']) {
   }
   if (!html.includes(`<meta property="og:title" content="${escapeHtml(title)}">`) || !html.includes(`<meta name="description" content="${escapeHtml(article.description[lang])}">`)) errors.push(`${file}: metadata differs from the article.`);
   if (/brouillon|draft for review|unpublished draft|Sommaire de relecture|Review contents|\.md(?:["'#?])/i.test(html)) errors.push(`${file}: review-only text or a Markdown link leaked into the page.`);
-  if (/<script(?![^>]*type="application\/ld\+json")/i.test(html)) errors.push(`${file}: an article unexpectedly depends on JavaScript.`);
+  const executableScripts = [...html.matchAll(/<script\b([^>]*)>/gi)]
+    .filter(match => !/type=["']application\/ld\+json["']/i.test(match[1]));
+  const scriptAttributes = executableScripts[0]?.[1] || '';
+  if (executableScripts.length !== 1 || !/\bdefer\b/i.test(scriptAttributes) || !/src=["'][^"']*assets\/js\/analytics\.js["']/i.test(scriptAttributes)) {
+    errors.push(`${file}: article content must remain JavaScript-independent; only the deferred consent helper is allowed.`);
+  }
 }
 
 const home = await getHtml(path.join(root, 'index.html'));

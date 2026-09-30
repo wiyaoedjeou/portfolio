@@ -6,6 +6,7 @@ import { readFile } from 'node:fs/promises';
 const source = (await readFile(new URL('../assets/js/contact.js', import.meta.url), 'utf8')).replace('export function initContact', 'function initContact');
 function harness({ lang = 'en', valid = true, honey = '', email = 'test@example.invalid', sdk = true, failure = false, storageThrows = false, rate = null } = {}) {
   const sent = [];
+  const analyticsEvents = [];
   const storage = new Map(rate ? [['contact_submits', JSON.stringify(rate)]] : []);
   const button = {
     disabled: false, textContent: lang === 'fr' ? '→ Envoyer le message' : '→ Send message',
@@ -42,6 +43,9 @@ function harness({ lang = 'en', valid = true, honey = '', email = 'test@example.
       setItem(key, value) { if (storageThrows) throw Error('disabled'); storage.set(key, value); },
     },
     console: { error() {} },
+    portfolioAnalytics: {
+      event(name, parameters) { analyticsEvents.push({ name, parameters }); },
+    },
   };
   if (sdk) globals.emailjs = {
     init() {},
@@ -53,7 +57,7 @@ function harness({ lang = 'en', valid = true, honey = '', email = 'test@example.
   };
   vm.runInNewContext(source + '\ninitContact();', globals);
   return {
-    sent, form, button, storage,
+    sent, analyticsEvents, form, button, storage,
     get status() { return status; },
     submit: () => onSubmit({ preventDefault() {} }),
   };
@@ -89,6 +93,9 @@ test('contact success in French and English resets the form and restores the sub
     assert.equal(h.status.className, 'form-status form-status--success');
     assert.match(h.status.textContent, lang === 'fr' ? /Message envoyé/ : /Message sent/);
     assert.equal(JSON.parse(h.storage.get('contact_submits')).count, 1);
+    assert.equal(h.analyticsEvents.length, 1);
+    assert.equal(h.analyticsEvents[0].name, 'generate_lead');
+    assert.equal(h.analyticsEvents[0].parameters.method, 'contact_form');
   }
 });
 
@@ -101,6 +108,7 @@ test('contact failure preserves the entered message, restores the button and off
   assert.match(h.status.textContent, /Échec de l'envoi/);
   assert.match(h.status.textContent, /wiyaoedjeou@outlook\.com/);
   assert.equal(h.storage.has('contact_submits'), false);
+  assert.equal(h.analyticsEvents.length, 0);
 });
 
 test('an unavailable contact SDK falls back to direct email without an external call', async () => {
