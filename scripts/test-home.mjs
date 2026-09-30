@@ -36,6 +36,8 @@ test('the newest research story is the only featured article', () => {
   assert.equal(featured.length, 1);
   assert.equal((html.match(/blog-card--featured/g) || []).length, 1);
   assert.match(html, new RegExp(`class="blog-card blog-card--featured fade-in" data-article-id="${featured[0].id}"`));
+  assert.equal(html.match(/data-article-id="([^"]+)"/)?.[1], featured[0].id);
   assert.match(html, /data-en="Featured article" data-fr="Article à la une"/);
   assert.doesNotMatch(css, /\.blog-card:last-child:nth-child\(odd\)/);
+  assert.match(css, /\.blog-card--featured\s*\{[\s\S]*?grid-column:\s*1\s*\/\s*-1;/);
 });

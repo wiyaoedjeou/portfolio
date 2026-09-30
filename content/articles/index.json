@@ -1,6 +1,6 @@
 {
   "siteUrl": "https://wiyaoedjeou.github.io/portfolio/",
-  "homeUpdated": "2026-09-14",
+  "homeUpdated": "2026-09-30",
   "articles": [
     {
       "id": "water-spray",
@@ -130,7 +130,7 @@
     },
     {
       "id": "ra-limitations",
-      "featured": true,
+      "featured": false,
       "source": {
         "fr": "fr/06-pourquoi-ra-ne-suffit-pas.md",
         "en": "en/06-why-ra-is-not-enough.md"
@@ -151,6 +151,32 @@
       "published": {
         "fr": "2026-09-14",
         "en": "2026-09-14"
+      },
+      "image": "assets/images/og-tribology-contact.jpg"
+    },
+    {
+      "id": "lubrication-transition",
+      "featured": true,
+      "source": {
+        "fr": "fr/07-rugosite-transition-lubrification.md",
+        "en": "en/07-roughness-lubrication-transition.md"
+      },
+      "path": {
+        "fr": "fr/blog/rugosite-transition-lubrification.html",
+        "en": "blog/roughness-lubrication-transition.html"
+      },
+      "category": {
+        "fr": "Tribologie · Lubrification mixte",
+        "en": "Tribology · Mixed lubrication"
+      },
+      "description": {
+        "fr": "Comment vitesse, charge et rugosité redistribuent la charge entre les aspérités et le fluide, et ce que cela suggère — sans le prouver encore — pour les chaussées mouillées.",
+        "en": "How speed, load and roughness redistribute load between asperities and fluid, and what this suggests—without yet proving—for wet pavements."
+      },
+      "updated": "2026-09-30",
+      "published": {
+        "fr": "2026-09-30",
+        "en": "2026-09-30"
       },
       "image": "assets/images/og-tribology-contact.jpg"
     }

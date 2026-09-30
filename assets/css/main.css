@@ -675,6 +675,8 @@ section { padding: 6rem 0; }
   background: rgba(13,115,119,0.18);
 }
 .blog-card--featured {
+  grid-column: 1 / -1;
+  min-height: 240px;
   border-color: rgba(20,168,189,0.55);
   background: linear-gradient(135deg, rgba(13,115,119,0.22), rgba(255,255,255,0.05) 62%);
 }
